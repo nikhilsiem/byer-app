@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="public/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="public/css/custom-new.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick-theme.css">
+    <!-- fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Byer</title>
+    </head>
+<body>
+
+
+<%
+if(step==1) {
+%>
+<style >
+.registration-forms{
+  display:none;
+}
+.confirmation-form{
+  display: block!important;
+}
+
+</style>
+<%}if(preExist=='true'){
+
+%>
+<style>
+  
+  .incorrect-section{
+    display:block!important;
+  }
+</style>
+
+<%}if(broken=='true'){
+
+%>
+<style>
+  
+  .incorrect-otp-section{
+    display:block!important;
+  }
+</style>
+
+<%}
+if(success==true){
+%>
+<style type="text/css">
+  .successBlock{display: block!important;}
+</style>
+
+<%}%>
+
+
+
+
+
+<div class="container mx-auto successBlock" style="margin-top: 60px;display: none;">
+  <div class="row">
+    
+<div class="col-lg-8 col-md-6 col-sm-8 col-8">
+  <div class="card text-white bg-warning mb-3" style="max-width: 18rem;text-align: center;">
+  <div class="card-header">Sucess</div>
+  <div class="card-body">
+    <h5 class="card-title"> Thank You for choosing Us..!
+      <h6><br>The account is created successfully</h6></h5>
+    
+    <a <%if(who=="shgPartner"){%>href="join?who=shg"<%}else{%>href="join?who=seller"<%}%>><i class="fa fa-hand-o-right" aria-hidden="true"><p class="card-text text-primary"><b>login Now.</b></p></i></a>
+
+   
+  </div>
+</div>
+
+</div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class='incorrect-section' style="background-color:red; text-align: center;display: none;margin-top: 80px;">
+              <p>The User <%=userMob%> is already exist</p>
+            </div> 
+
+
+
+
+
+<div class='incorrect-otp-section' style="background-color:red; text-align: center;display: none;">
+              <p>OTP is expired or link is broken</p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="row">
+
+
+<div class='col-lg-6 col-md-6 col-sm-10 col-10'>
+  
+</div>
+
+
+
+<div class='col-lg-6 col-md-6 col-sm-10 col-10'>
+  
+</div>
+
+
+    
+
+  </div>
+
+
+</div> -->
+<%console.log('############',who);%>
+
+
+
+<%if(who=='seller'){%>
+
+<style type="text/css">
+  .sellerForm{display: block!important;}
+</style>
+<%}
+if(who=='shg'){%>
+
+<style type="text/css">
+  .shgForm{display: block!important;}
+</style>
+
+<%}%>
+
+
+
+
+
+
+
+
+<!-- ***************************login form start here**************************** -->
+
+<div class=" registration-forms">
+<section id="wrapper" class="shgForm" style="display: none;">
+    <div>
+        <div>
+            <div class="login-wrapper1">
+               <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome Back</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">Producer Login Here</h2>
+                            <div class="form-wrapper">
+                                <form class="form-signin"   method="post" action="/login/partners">
+                                    <div class="form-group">
+                                      <input type="tel" name="mobNo" id="inputMobNo" class="form-control" placeholder="Mobile Number" required autofocus minlength="10" maxlength="10">
+                                    </div>
+                                    <div class="form-group">
+                                      <input name="password" type="password" id="inputPassword" class="form-control password1" placeholder="Password" required autocomplete="off" minlength="6">
+                                      
+                                    </div>
+                                    
+                                    <div>
+                                        <button type="submit" class="common-btn">Login</button>
+                                    </div>
+                                </form>
+                                <p class="dont-account text-center"><a href="forget?type=partner">forget password</a></p>
+                                <p class="dont-account text-center"><a href="#" onclick="displaySHGRegForm()"> Register here</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+
+<section id="wrapper1" class="sellerForm" style="display: none;">
+    <div>
+        <div>
+            <div class="login-wrapper1">
+               <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome Back</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">Selling Partner Login Here</h2>
+                            <div class="form-wrapper">
+                                <form class="form-signin"   method="post" action="/login/seller">
+                                  <div class="form-group">
+                                    <input type="tel" name="mobNo" id="inputMobNo" class="form-control" placeholder="Mobile Number" required autofocus minlength="10" maxlength="10">
+                                  </div>
+                                    <div class="form-group">
+                                      <input name="password" type="password" id="inputPassword" class="form-control password1" placeholder="Password" required autocomplete="off" minlength="6">
+                                      
+                                    </div>
+                                    
+                                    <div>
+                                        <button type="submit" class="common-btn">Login</button>
+                                    </div>
+                                </form>
+                                <p class="dont-account text-center"><a href="forget?type=seller">forget password</a></p>
+                                <p class="dont-account text-center"><a href="#" onclick="displaySellerRegForm()"> Register here</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+
+
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+  
+function displaySellerRegForm(){
+
+  var frm=document.getElementById('sellingPartner');
+
+  if(frm.style.display=='none'){
+frm.style.display='block';}
+else{frm.style.display='none';}
+
+var element = document.getElementById("wrapper1");
+  element.classList.add("mystyle1");
+
+
+// frm.style.display='block';
+console.log("hahaha");
+
+}
+
+
+
+function displaySHGRegForm(){
+var frm=document.getElementById('shgPartner');
+
+  if(frm.style.display=='none'){
+frm.style.display='block';}
+else{frm.style.display='none';}
+
+var element = document.getElementById("wrapper");
+  element.classList.add("mystyle");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+  
+.registerForms{
+  z-index: 9;
+  position: fixed;
+  top:20px;
+  text-align: center;
+  display: none;
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- **************register start******************** -->
+
+
+<!-- <div class='registration-form' style="margin-top:50px;">
+
+
+
+<div class="container">
+    <div class="row"> -->
+
+
+
+
+
+<!-- --------------shg partner form start here------------------------------ -->
+      <!-- <div class="col-sm-9 col-md-6 col-lg-6 col-10 mx-auto"> -->
+
+
+<section class="registration-forms" style="display: none;" id='shgPartner'>
+    <div>
+        <div>
+            <div class="login-wrapper1">
+               <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome Back</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">Join us As a Producer</h2>
+                      <div class='incorrect-section' style="background-color:red; text-align: center;display: none;">
+                        <p>The User <%=userMob%> is already exist</p>
+                      </div> 
+                       <div class='incorrect-otp-section' style="background-color:red; text-align: center;display: none;">
+                        <p>OTP is expired or link is broken</p>
+                      </div>
+                            <div class="form-wrapper">
+                                 <form class="form-signin"   method="post" action="/join?step=register&type=shgPartner"
+                                    oninput='password.setCustomValidity(password.value != passwordSecond.value ? "Passwords do not match." : "")'>
+
+                                      <div class="form-group">
+                                        <input type="tel" name="mobNo" id="inputMobNo" class="form-control" placeholder="Mobile Number" required autofocus minlength="10" maxlength="10">
+                                      </div>
+
+
+                                      <div class="form-group">
+                                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address(Optional)" autofocus>
+                                      </div>
+
+                                      <div class="form-group">
+                                        <input name="password" type="password" id="inputPassword" class="form-control password1" placeholder="Password" required autocomplete="off" minlength="6">
+                                        
+                                      </div>
+
+                                      <div class="form-group">
+                                        <input name="passwordSecond" type="password" id="inputPassword" class="form-control password2" placeholder="Confirm Password" required autocomplete="off" minlength="6">
+                                        
+                                      </div>
+
+                                      <div class="form-group">
+                                        <input type="text" name="name" id="companyName" class="form-control password2" placeholder="Name" required autocomplete="off" minlength="3">
+                                        
+                                      </div>
+
+                                      
+                                      <button class="btn common-btn" type="submit">Sign up</button>
+                                     
+                                    </form>
+                                <p class="dont-account text-center"><a href="/join?who=shg">already registered, Login Here</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+
+       
+
+
+      <!-- </div> -->
+
+<!-- --------------shg partner form end here------------------------------ -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- --------------selling partner form start here------------------------------ -->
+      <!-- <div class="col-sm-9 col-md-6 col-lg-6 col-10 mx-auto"> -->
+
+
+
+<section class="registration-forms" style="display: none;" id='sellingPartner'>
+    <div>
+        <div >
+            <div class="login-wrapper1">
+               <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome Back</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">Join us As a Selling  Partner</h2>
+                     <div class='incorrect-section' style="background-color:red; text-align: center;display: none;">
+                        <p>The User <%=userMob%> is already exist</p>
+                      </div> 
+                      <div class='incorrect-otp-section' style="background-color:red; text-align: center;display: none;">
+                        <p>OTP is expired or link is broken</p>
+                      </div>
+                            <div class="form-wrapper">
+                                <form class="form-signin"   method="post" action="/join?step=register&type=sellingPartner"
+                                  oninput='password.setCustomValidity(password.value != passwordSecond.value ? "Passwords do not match." : "")'>
+
+                                    <div class="form-group">
+                                      <input type="tel" name="mobNo" id="inputMobNo" class="form-control" placeholder="Mobile Number" required autofocus minlength="10" maxlength="10">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address(Optional)" autofocus>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <input name="password" type="password" id="inputPassword" class="form-control password1" placeholder="Password" required autocomplete="off" minlength="6">
+                                      
+                                    </div>
+
+                                    <div class="form-group">
+                                      <input name="passwordSecond" type="password" id="inputPassword" class="form-control password2" placeholder="Confirm Password" required autocomplete="off" minlength="6">
+                                      
+                                    </div>
+
+                                    <div class="form-group">
+                                      <input type="text" name="name" id="companyName" class="form-control password2" placeholder="Organization Name" required autocomplete="off" minlength="3">
+                                      
+                                    </div>
+
+                                    
+                                    <button class="btn common-btn" type="submit">Sign up</button>
+                                    
+                                  </form>
+                                <p class="dont-account text-center"><a href="/join?who=seller">already registered, Login Here</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+
+      <!-- </div> -->
+
+<!-- --------------selling partner form end here------------------------------ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    </div>
+  </div>
+
+
+
+
+</div> -->
+
+
+
+<!-- **************register end******************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- **********************confirm otp start here**************************** -->
+
+
+<div class='confirmation-form' id='otp' style="display: none;">
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Confirm OTP</h5>
+<p style="text-align: center;"> OTP is send to the mobile No <b><%=mobNo%></b></p>
+            <form class="form-signin" method="post" action="/join?step=confirm">
+              <div class="form-group">
+                <input name="otp" type="otp" id="otp" class="form-control" placeholder="OTP"  maxlength="6" minlength="6" required autofocus>
+              </div>
+
+              
+
+              
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"> confirm </button>
+              <hr class="my-4">
+              <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google mr-2"></i> Sign in with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fa fa-facebook mr-2"></i> Sign in with Facebook</button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+<!-- **********************confirm otp end here**************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

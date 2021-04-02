@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="public/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="public/css/custom-new.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick-theme.css">
+    <!-- fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Byer</title>
+    </head>
+<body>
+
+
+
+<!-- *************************login form start***************************** -->
+
+
+<script type="text/javascript">
+  
+function user(){
+// var userForm=document.getElementsByClassName("userForm");
+//   var partnerForm=document.getElementsByClassName("partnerForm");
+  document.getElementById("userForm").action="/login/user";
+document.getElementById("userLogBtn").style.backgroundColor="#86C9D5";
+  document.getElementById("partnerLogBtn").style.backgroundColor="#DBEEF1";
+
+}
+
+
+
+function partner(){
+//   var userForm=document.getElementsByClassName("userForm");
+//   var partnerForm=document.getElementsByClassName("partnerForm");
+  // document.getElementById("userForm").style.display = 'none';
+  // document.getElementById("partnerForm").style.display = 'block';
+
+document.getElementById("userForm").action="/login/partners";
+  document.getElementById("userLogBtn").style.backgroundColor="#DBEEF1";
+  document.getElementById("partnerLogBtn").style.backgroundColor="#86C9D5";
+
+}
+
+</script>
+
+
+
+
+<%
+var userbtnCol='#86C9D5';
+var partnerbtnCol="#DBEEF1";
+if(forgetPass==true){
+console.log('apun  isdhar hi se##################');
+  %>
+
+<style>
+  
+.loginForm{
+  display: none!important;
+}
+.forgetpass{
+  display: block!important;
+}
+</style>
+
+
+
+
+
+<%
+
+
+  }else if(incorrect==true){
+%>
+<style>
+  .incorrect-section{
+    display: block!important;
+  }
+</style>
+
+
+
+<%
+
+console.log('scheck',action=='/login/partners')
+
+if(action=='/login/partners'){
+
+userbtnCol='#DBEEF1';
+partnerbtnCol="#86C9D5";
+ }}%>
+
+
+
+
+
+
+<section id="wrapper">
+    <div>
+        <div>
+            <div class="login-wrapper1">
+               <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome Back</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">LOGIN</h2>
+                            <div class="form-wrapper">
+                                <form class="form-signin userForm" id="userForm" method="post" action=<%=action%>>
+                                    <div class="form-group">
+                                        <input type="tel" name="mobNo" id="inputMobNo" class="form-control" placeholder="Mobile No" required autofocus minlength="10" maxlength="10">
+                                    </div>
+                                    <div class="form-group m-bottom-20">
+                                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                    </div>
+                                    <div class="forget-pass">
+                                        <div class="checkbox-wrapper">
+                                            <span class="custome-checkbox">
+                                                <span class="input-check">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <span class="right-checkbox">
+                                                        <img src="public/img/assets/tick.png" alt="Icon Right" />
+                                                    </span>
+                                                </span>
+                                                <span class="box-checkbox"></span>
+                                            </span>
+                                            <label for="customCheck1">Remember Me</label>
+                                        </div>
+                                        <div class="forget-link">
+                                            <a href="forget?type=user">Forgot your password?</a>   
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="common-btn">Login</button>
+                                    </div>
+                                </form>
+                                <p class="dont-account text-center">Don't have a account? <a href="register">Sign up.</a>  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+<!-- *************************login form end******************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- **************forget password form start here****************** -->
+
+
+<script type="text/javascript">
+  
+function userForget(){
+// var userForm=document.getElementsByClassName("userForm");
+//   var partnerForm=document.getElementsByClassName("partnerForm");
+  document.getElementById("forgetPassForm").action="/login/user?forgetPass=true";
+document.getElementById("userLogBtnF").style.backgroundColor="#86C9D5";
+  document.getElementById("partnerLogBtnF").style.backgroundColor="#DBEEF1";
+
+}
+
+
+
+function partnerForget(){
+//   var userForm=document.getElementsByClassName("userForm");
+//   var partnerForm=document.getElementsByClassName("partnerForm");
+  // document.getElementById("userForm").style.display = 'none';
+  // document.getElementById("partnerForm").style.display = 'block';
+
+document.getElementById("forgetPassForm").action="/login/partners?forgetPass=true";
+  document.getElementById("userLogBtnF").style.backgroundColor="#DBEEF1";
+  document.getElementById("partnerLogBtnF").style.backgroundColor="#86C9D5";
+
+}
+
+</script>
+
+
+
+
+<div class='forgetpass' style="display: none;">
+
+
+
+<section id="wrapper">
+    <div>
+        <div>
+            <div class="login-wrapper1">
+              <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">Forgot Password</h2>
+                             <div style="margin-bottom: 10px;">
+                              <div class="row">
+                                <div class="col">
+                                  <button class="btn btn-lg btn-primary btn-block text-uppercase userLogBtnF" id="userLogBtnF" style="background-color:<%=userbtnCol%>;" onclick="userForget()"> Customer </button></div>
+                                 <div class="col"> <button class="btn btn-lg btn-primary btn-block text-uppercase partnerLogBtnF" id="partnerLogBtnF" style="background-color: <%=partnerbtnCol%>;"onclick="partnerForget()"> Partners </button></div>
+                                </div>
+                              </div>
+                            <div class="form-wrapper">
+                                 <form class="form-signin forgetPassForm" id="forgetPassForm" method="post" action=''>
+                                    <div class="form-group">
+                                        <label>Mobile Number</label>
+                                        <input type="tel" name="mobNo" id="inputMobNo" class="form-control" placeholder="Mobile No" required autofocus minlength="10" maxlength="10">
+                                    </div>
+                                    <div class="form-group m-bottom-20">
+                                        <label>Password</label>
+                                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                    </div>
+                                    <div class="forget-pass">
+                                        <div class="checkbox-wrapper">
+                                            <span class="custome-checkbox">
+                                                <span class="input-check">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <span class="right-checkbox">
+                                                        <img src="http://kaved.questdeveloper.com/assets/front/frontcss/img/icon_tick.png" alt="Icon Right" />
+                                                    </span>
+                                                </span>
+                                                <span class="box-checkbox"></span>
+                                            </span>
+                                            <label for="customCheck1">Remember Me</label>
+                                        </div>
+                                        <div class="forget-link">
+                                            <a href="login?forgetPassword=true">Forgot your password?</a>   
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="common-btn">Login</button>
+                                    </div>
+                                </form>
+                                <p class="dont-account  text-center">Don't have a account? <a href="register">Sign up.</a>  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

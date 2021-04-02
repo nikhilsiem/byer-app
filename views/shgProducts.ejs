@@ -1,0 +1,323 @@
+
+  <%- include('partials/header')%>
+  <%
+  if(session=='user'||session=='partner'){%>
+
+<style>
+  .login{
+    display: none;
+  }
+  .join{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+
+
+
+<%
+
+  if(session=='partner'){%>
+
+<style>
+  .products{
+    display: none;
+  }
+  .cart{
+    display: none;
+  }
+
+</style>
+
+ <% }
+
+%>
+
+
+<section class="upper-strip"></section>
+
+
+<section class="products-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="main-heading"><b>OUR PRODUCTS</b> <span>Products</span></h2>
+      </div>
+    </div>
+     <div class="row">
+      <% for(var i=0;i<products.length;i++) {%>
+      <div class="col-md-4">
+         <div class="product-outer">
+           <div class="product-img">
+            <img class="img-fluid product-img" src= "<%=products[i].filePath%>" alt="Card image cap">
+            
+           </div>
+           <div class="product-content-box">
+             <h6><a href="/productView?productID=<%=products[i].productId%>" title="View Product"> <%=products[i].name%> </a></h6>
+             <p><%if(products[i].SHGName!='unknown'){%> <b> From: <%=products[i].SHGName%> </b><%}%><br></p>
+              <p class="extra-details">&diams; <%=products[i].about%> |
+              <%if(products[i].about1!=null){%> &diams; <%=products[i].about1%> |  <%}%>
+              <%if(products[i].about2!=null){%> &diams; <%=products[i].about2%> | <%}%>
+              <%if(products[i].about3!=null){%> &diams; <%=products[i].about3%> |  <%}%>
+              <%if(products[i].about4!=null){%> &diams; <%=products[i].about4%> |  <%}%>
+              <%if(products[i].about5!=null){%> &diams; <%=products[i].about5%> |  <%}%>
+              <%if(products[i].support!=null){%> &diams; <%=products[i].support%> |  <%}%>
+              </p>
+              <p class="btn  btn-block "><b>Rs.  <%=products[i].price%> 
+              <%if(products[i].MRP!=null){%><strike><%=products[i].MRP%></strike><%}%></b></p>
+               <a href="/products/cart<%="?id="+products[i].productId+"&price="+products[i].price+"&name="+products[i].name+"&filePath="+products[i].filePath%>" class="btn common-btn btn-block">Add to cart</a>
+           </div>
+         </div>
+      </div>
+      <%}%>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script type="text/javascript">
+  function cart(productId){
+    console.log(productId);
+  }
+
+</script>
+
+<!-- ************************* products end here*************************** -->
+
+
+<style type="text/css">
+  .card-text b{
+    font-size: 10px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************footer********************* -->
+
+ <%- include('partials/footer') %> 
+
+<!-- ****************footer********************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

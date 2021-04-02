@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="public/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="public/css/custom-new.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick-theme.css">
+    <!-- fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Byer</title>
+    </head>
+<body>
+
+
+
+
+<%
+if(step==1) {
+%>
+<style >
+.registration-form{
+  display:none;
+}
+.confirmation-form{
+  display: block!important;
+}
+
+</style>
+<%}
+
+if(preExist=='true'){
+
+%>
+<style>
+  
+  .incorrect-section{
+    display:block!important;
+  }
+</style>
+
+<%}
+if(broken=='true'){
+
+%>
+<style>
+  
+  .incorrect-otp-section{
+    display:block!important;
+  }
+</style>
+
+<%}%>
+
+
+
+
+
+
+<!-- **************register start******************** -->
+
+
+<div class='registration-form'>
+
+
+<section id="wrapper">
+    <div>
+        <div>
+            <div class="login-wrapper1">
+               <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">Sign Up</h2>
+                            <div class="form-wrapper">
+                                <form class="form-signin" method="post" action="/register?step=register"
+                                  oninput='password.setCustomValidity(password.value != passwordSecond.value ? "Passwords do not match." : "")'
+                                  >
+                                    <div class="form-group">
+                                      <input name="mobNo" type="tel" id="inputMobNo" class="form-control" placeholder="Mobile Number"  maxlength="10" minlength="10" required autofocus>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <input name="password" type="password" id="inputPassword" class="form-control password1" placeholder="Password" minlength="6" required autocomplete="off">
+                                      
+                                    </div>
+
+                                    <div class="form-group">
+                                      <input  type="password" name="passwordSecond" id="inputPassword" class="form-control password2" placeholder="Confirm Password" minlength="6" required autocomplete="off">
+                                      </div>
+
+                                    <div class="form-group">
+                                      <input  name="name" type="text" id="name" class="form-control password2" placeholder="Full name" minlength="3" required autocomplete="off">
+                                      
+                                    </div>
+        
+                                    <div>
+                                        <button type="submit" class="common-btn">Sign up</button>
+                                    </div>
+                                </form>
+                                <p class="dont-account text-center">I have a account. <a href="login">Login</a>  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>
+
+
+</div>
+
+
+
+<!-- **************register end******************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->
+<!-- **********************confirm otp start here**************************** -->
+
+
+<div class='confirmation-form' id='otp' style="display: none;">
+
+
+<section id="wrapper">
+    <div>
+        <div>
+            <div class="login-wrapper1">
+               <div class="inner-part login-logo-wrapper">
+                    <div class="login-logo-inner width-full">
+                        <p><a href="home"><img src="public/img/assets/byer-logo.png" alt="Logo"></a></p>
+                        <h2>Welcome</h2>
+                        <h5>Nice to see you</h5>
+                        
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <div class="login-details">
+                        <div class="width-full">
+                      <h2 class="title-login">Confirm OTP</h2>
+                          <p style="text-align: center;"> OTP is send to the mobile No <b><%=mobNo%></b></p>
+                            <div class="form-wrapper">
+                                <form class="form-signin" method="post" action="/register?step=confirm">
+                                    <div class="form-group">
+                                      <!-- <input name="mobNo" type="tel" id="inputMobNo" class="form-control" placeholder="Mobile Number"  maxlength="10" minlength="10" required autofocus> -->
+                                      <input name="otp" type="otp" id="otp" class="form-control" placeholder="OTP"  maxlength="6" minlength="6" required autofocus>
+
+                                    </div>
+
+        
+                                    <div>
+                                      <button class="common-btn" type="submit"> confirm </button>
+                                        <!-- <button type="submit" class="common-btn">Sign up</button> -->
+                                    </div>
+                                </form>
+                                <!-- <p class="dont-account text-center">I have an account. <a href="login">Login</a>  </p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> 
+        </div>
+    </div>
+</section>  
+
+
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Confirm OTP</h5>
+              <p style="text-align: center;"> OTP is send to the mobile No <b><%=mobNo%></b></p>
+            <form class="form-signin" method="post" action="/register?step=confirm">
+              <div class="form-group">
+                <input name="otp" type="otp" id="otp" class="form-control" placeholder="OTP"  maxlength="6" minlength="6" required autofocus>
+              </div>
+
+              
+
+              
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"> confirm </button>
+              <hr class="my-4">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+</div>
+
+
+
+
+<!-- **********************confirm otp end here**************************** -->
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

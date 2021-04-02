@@ -1,0 +1,1043 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style type="text/css">
+  .carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+.carousel-multi-item-2 .col-md-3 {
+float: left;
+width: 25%;
+max-width: 100%; } }
+
+.carousel-multi-item-2 .card img {
+border-radius: 2px; }
+</style>
+
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- thumnail -->
+<meta property="og:image" content="public/img/logo/logo" />
+<meta property="og:title" content="BYER" />
+
+<!-- <meta
+  name="description"
+  content="byer, ecommerce website , we help to sell SHG products , startup , we sell organic product ."> -->
+
+
+
+
+<meta name="description" content="byer.in: Online Shopping India - Buy organic Prduct, Honey, Arhar Daal, pluses, Daal. Free Shipping & Cash on Delivery Available.">
+<meta name="keywords" content="byer.in,Byer.in, Byer, Online Shopping, online shopping india, india shopping online, Byer india, byer, buy online, buy organic food online, buy honey online, buy haldi online, SHG, home, kitchen">
+<meta name="google" content="nositelinkssearchbox">
+
+
+
+
+
+<meta property="og:description" content="Byer is a technology based platform which gives marketing and logistic solutions to the SHG and MSME groups who want to sell their products and increase their sales through online in the retailer market. Consumers can
+          buy products through our app and website from their nearest shop." />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+    <title>Byer</title>
+    <link rel="icon" type="image/webp" href="public/img/logo/logo">
+  </head>
+  <body>
+
+
+
+
+<style>
+  .login{
+    display: none;
+  }
+  .join{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+
+
+
+<div class="header" id="top-header" >
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<%
+
+  if(session=='partner'){%>
+
+<style>
+  .products{
+    display: none;
+  }
+  .cart{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+    <div class="main">
+
+
+
+
+
+<section class= "header-section">
+  <div class ="center-div">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('public/img/header-img/bah');">
+        <!-- <div class="carousel-caption d-none d-md-block"> -->
+          <div class="carousel-caption">
+          <h2 class="display-5" style="margin-top: -35%;font-weight: bolder;text-align: center;"><b>"</b>Transforming the life of rural SHG people by making their organic products available to the retail market and making a healthier world by allowing people to consume the pure organic products.<b>"</b></h2>
+          <!-- <p class="lead">Common this is first image for BYER.</p> -->
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('public/img/header-img/holding-hand')">
+        <div class="carousel-caption">
+          <h2 class="display-5" style="margin-top: -35%;font-weight: bolder;text-align: center;"><b>"</b>Transforming the life of rural SHG people by making their organic products available to the retail market and making a healthier world by allowing people to consume the pure organic products.<b>"</b></h2>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('public/img/header-img/silai')">
+        <div class="carousel-caption">
+          <h2 class="display-5" style="margin-top: -35%;font-weight: bolder;text-align: center;"><b>"</b>Transforming the life of rural SHG people by making their organic products available to the retail market and making a healthier world by allowing people to consume the pure organic products.<b>"</b></h2>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+    <!-- <div class="our-vission" style="margin-bottom:10%;">
+    <h1 class="font-weight-bold col-lg-10 col-m-10 col-10 offset-lg-2 offset-md-2 offset-2" style="text-align: center;width: 60%;"><b>"</b> Focused to transform the life of rural people by providing logistics and marketing support to SHGs <b>"</b></h1>
+    <p><b> - Our Vision</b></p>
+  </div>
+
+    <div class="header-buttons" style="margin-bottom:-20%;">
+      <a href="#productId">OUR PRODUCTS</a>
+
+    </div> -->
+
+
+  </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ************Three extra div header***************** -->
+<section>
+
+<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0 products-header" id="productId" style="text-align: center;margin-left: 40%;margin-top:-60%;margin-bottom: 3%;">How We Work</h1>
+<hr class="mt-2 mb-5">
+
+</section>
+
+<section class="header-extradiv">
+  <div class="container">
+    <div class ="row">
+
+<div class="extra-div col-lg-3 col-md-3 col-12">
+        <a href="#"><i class="fa-4x fa fa-users" aria-hidden="true"></i></a>
+        <h2><b>Clustering SHG</b></h2>
+        <p>we cluster the SHG on the basis of products and regions.</p>
+      </div>
+
+      <div class="extra-div col-lg-3 col-md-3 col-12">
+        <a href="#"><i class="fa-4x fa fa-pagelines" aria-hidden="true"></i></a>
+        <h2><b>PICKING DIRECTLY FROM SHG</b></h2>
+        <p>We provide logistics and marketing   support to the SHGs
+which helps them reach wide customers which help them to increase their income.</p>
+      </div>
+
+
+
+      <div class="extra-div col-lg-3 col-md-3 col-12">
+        <a href="#"><i class="fa-4x fa fa-check-circle-o" aria-hidden="true"></i>
+</a>
+        <h2><b>QUALITY CHECK</b></h2>
+        <p>Customised sorting, grading & packaging helps us to maintain the quality required by customers.</p>
+      </div>
+
+      <div class="extra-div col-lg-3 col-md-3 col-12">
+        <a href="#"><i class="fa-4x fa fa-cart-plus" aria-hidden="true"></i></a>
+        <h2><b>DELIVERY</b></h2>
+        <p>low cost on time delivery with our tech-enabled logistics processes by trained professionals.</p>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+
+<!-- ************Three extra div header***************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- product gallery -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section >
+
+
+  <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0 products-header" id="productId" style="text-align: center;margin-left: 35%;margin-bottom: 3%;">Most Searched Products</h1>
+<hr class="mt-2 mb-5">
+
+<div class="container justify-content-center">
+
+  <div class="product-row row text-center text-lg-left">
+
+    <div class="product col-lg-3 col-md-3 col-12 ">
+      <a href="#" class="d-block mb-4 h-100">
+            <img loading="lazy" class="img-fluid img-thumbnail" src="public/img/products/dokra-craft/dhokra_art2" alt="product">
+            <h2>dhokra art</h2>
+          </a>
+
+    </div>
+    <div class="product col-lg-3 col-md-3 col-12">
+      <a href="#" class="d-block mb-4 h-100">
+            <img loading="lazy" class="img-fluid img-thumbnail" src="public/img/products/daal/Black eyed peas,Raungi-lobhia" alt="product">
+            <h2>Black eyed peas</h2>
+          </a>
+
+    </div>
+    <div class="product col-lg-3 col-md-3 col-12">
+      <a href="#" class="d-block mb-4 h-100">
+            <img loading="lazy" class="img-fluid img-thumbnail" src="public/img/products/daal/Lentils sabut urad" alt="product">
+            <h2>Lentils sabut urad</h2>
+          </a>
+
+    </div>
+    <div class="product col-lg-3 col-md-3 col-12">
+      <a href="#" class="d-block mb-4 h-100">
+            <img loading="lazy"   class="img-fluid img-thumbnail" src="public/img/products/daal/kala chana" alt="product">
+            <h2>kala chana</h2>
+          </a>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+</div>
+
+<hr class="mt-2 mb-5">
+</section>
+
+<!-- product gallery -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%
+  var pic1='public/img/moto/healthy-eating-plan';
+  var pic2='public/img/moto/packetsPhoto';
+  var pic3='public/img/moto/organicFood';
+  var pic4='public/img/moto/fruits';
+  var pic5='public/img/moto/organic';
+
+  var picText1='We beleive in "Consume Healthy Stay Healthy"';
+  var picText2='We promote and trade tribal products to transform the tribal lives. We are committed to make pure authentic products reachable to the end users at best price for creating a green sustainable world with better health.';
+  var picText3='Organic food is the new fuel in the food industry so by consuming organic goods, we can make this world healthy and happy.';
+  var picText4='Good health reflects in consuming good food. Good food is what we source from organic farming. So Eat organic and stay energetic and hygenic. Thus consume pure & aunthentic products to stay energetic and hygienic.';
+  var picText5='We focus on creating an organic sustainable food chain by connceting organic producers from rural part of India to the retail world.';
+
+%>
+
+
+
+
+
+
+<style type="text/css">
+
+.carousel-item{
+  padding: 0!important;
+  margin: 0!important;
+}
+.carousel-inner{
+  padding: 0!important;
+  margin: 0!important;
+}
+
+</style>
+
+
+
+<section class='moto' loading="lazy">
+
+<header>
+
+
+
+  <div class='container-fluid' style="width: 100vw;">
+    <div class='row  mx-0'>
+      <!-- <div> -->
+        <!-- <div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="carouselExampleIndicators" class="carousel carousel-sync slide col-lg-2 col-md-2 col-sm-2 col-2  px-0" data-ride="carousel" style="padding-top:4vh;filter: blur(5px);">
+
+    <div class="carousel-inner" role="listbox" style='height: 92vh;'>
+
+      <div class="carousel-item active" style="background-image: url(<%=pic5%>)"></div>
+
+      <div class="carousel-item" style="background-image: url(<%=pic1%>)"></div>
+
+      <div class="carousel-item" style="background-image: url(<%=pic2%>)"></div>
+
+
+      <div class="carousel-item" style="background-image: url(<%=pic3%>)"></div>
+
+
+
+      <div class="carousel-item" style="background-image: url(<%=pic4%>)"></div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="carouselExampleIndicators" class="carousel carousel-sync slide col-lg-8 col-md-8 col-sm-8  col-8 px-1" data-ride="carousel">
+
+    <div class="carousel-inner" role="listbox">
+
+      <div class="carousel-item active" style="background-image: url(<%=pic1%>)">
+        <div class="carousel-caption">
+          <h2 class="display-5"><%=picText1%></h2>
+
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image: url(<%=pic2%>)">
+        <div class="carousel-caption">
+          <h2 class="display-5"><%=picText2%></h2>
+
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background-image: url(<%=pic3%>)">
+        <div class="carousel-caption">
+          <h2 class="display-5"><%=picText3%></h2>
+
+        </div>
+      </div>
+
+
+      <div class="carousel-item" style="background-image: url(<%=pic4%>)">
+        <div class="carousel-caption">
+          <h2 class="display-5"><%=picText4%></h2>
+
+        </div>
+      </div>
+
+
+
+      <div class="carousel-item" style="background-image: url(<%=pic5%>)">
+        <div class="carousel-caption">
+          <h2 class="display-5"><%=picText5%></h2>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="carouselExampleIndicators" class="carousel carousel-sync slide col-lg-2 col-md-2 col-sm-2 col-2  px-0" data-ride="carousel" style="padding-top:4vh;filter: blur(5px);">
+    <div class="carousel-inner" role="listbox" style='height: 92vh;'>
+
+      <div class="carousel-item active" style="background-image: url(<%=pic2%>)"></div>
+
+      <div class="carousel-item" style="background-image: url(<%=pic3%>)"></div>
+
+      <div class="carousel-item" style="background-image: url(<%=pic4%>)"></div>
+
+
+      <div class="carousel-item" style="background-image: url(<%=pic5%>)"></div>
+
+
+
+      <div class="carousel-item" style="background-image: url(<%=pic1%>)"></div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</header>
+</section>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+
+$('.carousel-sync').on('slide.bs.carousel', function(ev) {
+    // get the direction, based on the event which occurs
+    var dir = ev.direction == 'right' ? 'prev' : 'next';
+    // get synchronized non-sliding carousels, and make'em sliding
+    $('.carousel-sync').not('.sliding').addClass('sliding').carousel(dir);
+});
+$('.carousel-sync').on('slid.bs.carousel', function(ev) {
+    // remove .sliding class, to allow the next move
+    $('.carousel-sync').removeClass('sliding');
+});
+
+
+});
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ********************our partners start********************** -->
+<section>
+<hr class="mt-2 mb-5">
+  <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0 partner-hearder" id="partnerId" style="text-align: center;margin-left: 40%">Our NGO Partners</h1>
+<hr class="mt-2 mb-5">
+
+<div class="container justify-content-center">
+  <div class="partners-row row text-center text-lg-left">
+
+    <div class="partners col-lg-12 col-md-12 col-12">
+
+            <img class="img-fluid img-thumbnail" src="public/img/partners/spread" alt="product">
+            <h2>Spread</h2>
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ********************our partners end********************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *****************contact us****************** -->
+<style type="text/css">
+
+
+</style>
+
+
+
+<script>
+function openForm() {
+  // alert('hi');
+  // document.getElementById("contactid").style.display = "block";
+  document.getElementsByClassName('contactus')[0].style.display = "block";
+  // document.log('haha');
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+
+
+
+
+
+
+
+<section class="contactus" id="contactid">
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-6 col-m-6 col-10 "  style="">
+        <div class="contatiner heading text-center">
+    <h1 class="text-center font-weight-bold contactUs-header">CONTACT US</h1>
+
+  </div>
+
+                      <form method="post" action="/home/mail">
+
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Enter your name" name="name" id="username" required autocomplete="off">
+                        </div>
+
+
+                        <form action="/action_page.php">
+                        <div class="form-group">
+                          <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" required autocomplete="off">
+                        </div>
+
+
+                        <form action="/action_page.php">
+                        <div class="form-group">
+                          <input type="number" class="form-control" placeholder="Enter mobile Number" id="mobile" name="mobNo" required autocomplete="off" maxlength="10" minlength="10">
+                        </div>
+
+
+
+                            <div class="form-group">
+                            <textarea class="form-control" rows="5" id="comment" name="message" placeholder="enter your message" ></textarea>
+                            </div>
+
+
+                            <div class="d-flex justify-content-center form-button">
+                        <button type="submit" class="btn btn-primary contactUS-submitBtn">Submit</button>
+                      </div>
+                      </form>
+
+
+      </div>
+
+
+<!-- **********************map start************************ -->
+<div class="col-lg-5 col-m-5 col-10 location-map" style="height: auto;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14982.576440304258!2d85.68297614953615!3d20.148889821219782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a75026d46d0f%3A0xd2aefe6c436022f4!2sIndian+Institute+Of+Technology+Bhubaneswar!5e0!3m2!1sen!2sin!4v1564824768593!5m2!1sen!2sin" width="500" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+<!-- **********************map ends************************** -->
+
+    </div>
+  <!-- </div>
+</div> -->
+
+
+
+</div>
+</div>
+
+
+
+
+</section>
+
+
+
+<!-- *****************contact us****************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section>
+
+<!-- ****************footer********************* -->
+
+ <%- include('partials/footer') %>
+
+<!-- ****************footer********************* -->
+
+
+
+
+</section>
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

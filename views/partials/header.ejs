@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="public/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="public/css/custom-new.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="public/css/slick-theme.css">
+    <!-- fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!-- Animate CSS -->
+   
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+     <link rel="stylesheet" href="public/css/animate.css"/>
+        <script src="public/js/wow.min.js"></script>
+<script>
+/*----wow initialization-----*/
+wow = new WOW(
+        {
+            animateClass: 'animated',
+            offset: 100,
+            callback: function (box) {
+                console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+            }
+        }
+);
+wow.init();
+/*----wow end-----*/
+</script>
+    <title>Byer</title>
+    </head>
+<body>
+
+<script >
+  
+function operationProductTable(){
+var productTable=document.getElementsByClassName('productTable')[0];
+
+var x = window.matchMedia("(max-width: 1000px)")
+// productTable.style.display = "none";
+
+if(!x.matches){
+if(productTable.style.display == "none"){productTable.style.display = "block"}
+  else{productTable.style.display = "none"}
+
+}
+}
+</script>
+
+
+
+
+
+<header class="header-main">
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default navbar-expand-lg navbar-light " id="navbar">
+                <a class="navbar-brand" href="home">
+                  <img src="public/img/assets/byer-logo.png">
+                 </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" id='btnNavbar' data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link"  href="/" tabindex="-1" aria-disabled="true">HOME</a>
+                    </li>
+                    <!--<li class="nav-item dropdown  products" data-display="static">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="operationProductTable()">
+                        Products
+                      </a>
+
+                      <div class="productTable">
+                        <ul>
+                          <li>
+                            <h6>Pulses<span>(Comming Soon)</span></h6>
+                              <ul>
+                                <li>
+                                  <a class="dropdown-item" style="pointer-events: none;" href="products?category=Arhar Daal"><i class="fas fa-arrow-right"></i> Arhar Daal</a>
+                                </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <h6>Millets<span>(Comming Soon)</span></h6>
+                              <ul>
+                                <li>
+                                  <a class="dropdown-item" style="pointer-events: none;" href="products?category=Millets"><i class="fas fa-arrow-right"></i> Millets</a>
+                                </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <h6>Spices<span>(Comming Soon)</span></h6>
+                              <ul>
+                                <li>
+                                  <a class="dropdown-item" style="pointer-events: none;" href="products?category=Turmeric"><i class="fas fa-arrow-right"></i> Turmeric</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" style="pointer-events: none;" href="products?category=Mustard"><i class="fas fa-arrow-right"></i> Mustard</a>
+                                </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <h6>Honey<span>(Comming Soon)</span></h6>
+                              <ul>
+                                <li>
+                                  <a class="dropdown-item" style="pointer-events: none;" href="products?category=Honey"><i class="fas fa-arrow-right"></i> Honey</a>
+                                </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <h6>Handicraft</h6>
+                              <ul>
+                                <li>
+                                 <a class="dropdown-item" href="/products?category=caneFurniture"><i class="fas fa-arrow-right"></i> Cane Furniture</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item" href="/products?category=handloom"><i class="fas fa-arrow-right"></i> Handloom</a>
+                                </li>
+                              </ul>
+                          </li>
+                        </ul>
+                      </div>
+
+
+
+
+                      <div class="dropdown-menu products productsViewMob"  aria-labelledby="navbarDropdown">
+
+                        <span>Handicraft</span>
+
+                        <a class="dropdown-item" href="/products?category=caneFurniture" style="color: #000!important;font-family: 'Poppins', sans-serif;">Cane Furniture</a>
+
+                        <a class="dropdown-item" href="/products?category=handloom" style="color: #000!important;font-family: 'Poppins', sans-serif;">Handloom</a>
+
+
+                    </div>
+                    </li>-->
+                    
+                    <li class="nav-item active">
+                      <a class="nav-link"  href="/b2b" tabindex="-1">B2B<span class="sr-only"></span></a>
+                    </li>
+                    
+
+
+                    <li class="nav-item">
+                      <a class="nav-link"  href="/about" tabindex="-1" aria-disabled="true">ABOUT US</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link"  href="/byer_mitra" tabindex="-1" aria-disabled="true">BYER MITRA</a>
+                    </li>
+                   
+                      <!--  <li class="nav-item dropdown  join" data-display="static">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        Join us
+                      </a>
+                      <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/join?who=shg">Producer</a>
+                          
+                   
+                            <a class="dropdown-item" href="/join?who=seller">Selling partner</a>
+
+
+                       </div>
+                    </li> -->
+
+                    <!--<li class="nav-item login">
+                      <img src="public/img/assets/user.png">
+                      <a class="nav-link "  href="<%=loginLink%>" tabindex="-1" aria-disabled="true"><%=login%></a>
+                      <span>or</span>
+                      <a class="nav-link "  href="<%=registerLink%>" tabindex="-1" aria-disabled="true"><%=register%></a>
+                    </li>
+                    
+
+                  <li class="nav-item dropdown user" style="display: none;">
+                      <a class="nav-link dropdown-toggle" href="<%=registerLink%>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%=register%>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                        <a class="dropdown-item" href="<%=registerLink%>">Your Account</a>
+
+                        <a class="dropdown-item bulkPurchaser" data-toggle="modal" data-target="#register-bulkModal" href="#">Buy in Bulk</a>
+                        
+                        <a class="dropdown-item" href="/user/logout">logout</a>
+                       </div>
+                    </li>-->
+
+
+
+
+
+
+                    <li class="nav-item cart">
+                    <a class="nav-link "  href="/approach" tabindex="-1"> <strong>OUR APPROACH</strong> </a>
+                  </li>
+
+                  </ul>
+                  
+                </div>
+
+
+
+
+
+
+              </nav>
+        </div>
+      </div>
+   </div>
+</header>
+
+
+
+
+
+
+<script src='public/js/navDisappearOnScroll.js'></script>

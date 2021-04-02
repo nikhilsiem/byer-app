@@ -1,0 +1,152 @@
+/******ujjal das******/
+
+
+*{margin:0;padding:0;box-sizing:border-box;font-family: 'Poppins', sans-serif;}
+
+a{text-decoration: none;}
+a:hover{
+	text-decoration: none;
+}
+li{list-style: none;}
+p{
+	font-size: 0.9rem;
+	line-height: 1.6;
+	font-weight: 400;
+	color: #606060;
+}
+
+
+/*.navbar{
+	padding-bottom:3px;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************product slide slow start*************************************/
+
+.product-img{
+	height: 150px;
+}
+.card-body h4{
+	font-size: 1.2rem;
+}
+
+
+/*********************************product slide slow end*************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,189 @@
+<footer class="footern-main">
+   <div class="container-fluid">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="row align-item-center">
+           <div class="col-md-8">
+              <div>
+                <ul>
+                  <li>
+                    <a href="">
+                      <img src="public/img/assets/byer-logo-white.png">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="about">About Us</a>
+                  </li>
+                  <li>
+                    <a href="home#contactid">Contact Us</a>
+                  </li>
+                  <li>
+                    <a href="">Privacy Policy</a>
+                  </li>
+                  <li>
+                    <a href="">Terms & Conditions</a>
+                  </li>
+                </ul>
+              </div>
+           </div>
+           <div class="col-md-4">
+             <ul class="social-icon">
+                <li>
+                    <a class="fb-ic" href="http://fb.me/BYER.IN" target="_blank">
+                    <i class="fab fa-youtube white-text mr-4" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="fb-ic" href="http://fb.me/BYER.IN" target="_blank">
+                  <i class="fab fa-facebook-f white-text mr-4" aria-hidden="true"></i>
+                </a>
+                </li>
+                <li>
+                  <a class="tw-ic" href="https://twitter.com/byer_in"  target="_blank">
+                  <i class="fab fa-twitter white-text mr-4" aria-hidden="true" ></i>
+                </a>
+                </li>
+                <li>
+                   <a class="ins-ic" href="https://www.instagram.com/byer.in/" target="_blank">
+                  <i class="fab fa-instagram  white-text" aria-hidden="true"> </i>
+                </a>
+                </li>
+              </ul>
+           </div>
+         </div>
+         <div class="copy-right-line">
+           © Copyright 2020 Byer | All Right Reserved by <a href="http://questglt.com/">Quest GLT.</a>
+         </div>
+       </div>
+     </div>
+   </div>
+</footer>
+
+
+<!-- Modal -->
+<div class="modal fade edit-address-modal" id="register-bulkModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="" id="bulkForm">
+          <form method="post" action="/user/bulkPurchaser">
+           <h5 style="padding: 10px;"><b>Register as Bulk Purchaser</b></h5>
+            <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group">
+                   <label for="name"><b>Organization Name</b></label>
+                   <input class="form-control" type="text" placeholder="Organization Name" name="name" id="organizationName" required minlength="4">
+                 </div>
+              </div>
+              <div class="col-md-6">
+                 <div class="form-group">
+                     <label for="GST"><b>GST Number</b></label>
+                     <input class="form-control" type="text" placeholder="GST Number" name="GST" maxlength="15" minlength="15"  id='GSTnumber' required>
+                 </div>
+              </div>
+            </div>
+             
+            <div class="row">
+              <div class="col-md-12">
+                 <div class="form-group">
+                   <label for="landmark"><b>Landmark</b></label>
+                   <select class="form-control" name="businessType" id="businessType" >
+                        <option value="" disabled >Select Business Type</option>
+                        <option value="retailer" selected>Retailer</option>
+                        <option value="hotel" >Hotel</option>
+                        <option value="sme" >SME</option>
+                        <option value="other" >Other</option>
+                        
+                    </select>
+                 </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn common-btn">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="public/js/slick.js"></script>
+<script type="text/javascript" src="public/js/slick.min.js"></script>
+
+
+        <!-- Custom JavaScript -->
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+          <script type="text/javascript">
+            $(".banner-slider").slick({
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+             $(".gallery-slider").slick({
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+            </script>
+
+
+<!-- <script type="text/javascript" src="jquery.lazy.min.js"></script> -->

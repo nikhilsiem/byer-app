@@ -1,0 +1,100 @@
+
+  <%- include('partials/header')%>
+  <%
+  if(session=='user'||session=='partner'){%>
+
+<style>
+  .login{
+    display: none;
+  }
+  .join{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+<%
+
+  if(session=='partner'){%>
+
+<style>
+  .products{
+    display: none;
+  }
+  .cart{
+    display: none;
+  }
+
+</style>
+
+ <% }
+
+%>
+
+
+
+
+
+<section class="upper-strip"></section>
+
+
+<section class="products-sec about-us-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="main-heading"><b>About Us</b> <span>Byer</span></h2>
+      </div>
+    </div>
+     <div class="row align-item-center">
+      <div class="col-md-5">
+        <div class="about-img">
+          <img class="img-fluid img-thumbnail" src="../public/img/shg/DSC08859" alt="product" >
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="about-content">
+          <p>Byer is a trading platform for the SHGs and Rural MSMEs for selling their products and increase their sales by connecting them to the nearest retailers as well as to the end users.</p> 
+          <p>Byer will provide a platform for selling and promoting SHG & Rural MSME’s products to the retailers in the market. SHG and MSME can direct trade their products with retailers through our platform. Byer will also provide a platform to the small retailers to manage their inventory, order, logistic and credit facility and thereby increase their daily sales .</p> 
+          <p>Deep insight into India’s economy, consumption diversity impels Byer’s vision of promoting and selling SHG’s consumer goods/products to the retail world as well as selling agricultural products from the rural farmers directly to the industry. Our operating model is based on connecting SHGs & MSMEs with the retailers with a promise to provide quality products to the consumers as well as to enhance the economy of rural India.</p>
+        </div>
+      </div>
+    </div>
+     <div class="row align-item-center">
+      <div class="col-md-5 order-2">
+        <div class="about-img">
+          <img class="img-fluid img-thumbnail" src="../public/img/shg/self_help_group_odisha_eps" alt="product">
+        </div>
+      </div>
+      <div class="col-md-7 ">
+        <div class="about-content">
+           <p>The consumer product manufacturers such as MSMEs and SHGs can simply list their products on our platform so that retailers can buy products through our app and website. We are on a vision to provide pure & quality organic products to the consumers through their nearest retail shop. Also BYER will provide women empowerment in the rural areas. Here, the SHGs can be utilized as product pushers rather than channels members.  Retailers can advertise about any products real time to their customers.</p> 
+        </div>
+      </div>
+    </div>
+   </div>
+ </section>
+
+
+
+
+<!-- ****************footer********************* -->
+ <%- include('partials/footer') %> 
+<!-- ****************footer********************* -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

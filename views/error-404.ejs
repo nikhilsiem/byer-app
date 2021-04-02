@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+<style type="text/css">
+  .carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+.carousel-multi-item-2 .col-md-3 {
+float: left;
+width: 25%;
+max-width: 100%; } }
+
+.carousel-multi-item-2 .card img {
+border-radius: 2px; }
+
+
+
+
+#message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
+      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+       #message { margin-top: 25%!important;
+       margin-bottom: 10%; 
+
+        background: white; box-shadow: none; }
+
+        .header-buttons{
+          margin-bottom: -30%!important;
+        }
+        
+      }
+
+</style>
+
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<!-- thumnail -->
+<meta property="og:image" content="public/img/logo/logo" /> 
+<meta property="og:title" content="BYER" />
+<meta property="og:description" content="Byer is a technology based platform which gives marketing and logistic solutions to the SHG and MSME groups who want to sell their products and increase their sales through online in the retailer market. Consumers can
+          buy products through our app and website from their nearest shop." />
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="public/css/error-404.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+    <title>Error-404</title>
+    <link rel="icon" type="image/png" href="../public/img/logo/logo">
+  </head>
+  <body>
+    
+
+
+
+
+
+
+
+
+<div class="header" id="top-header" >
+<!-- can add fixed-top here to reove the silde show -->
+<%- include('partials/header')%>
+
+
+
+
+<%
+  if(session=='user'||session=='partner'){%>
+
+<style>
+  .login{
+    display: none;
+  }
+  .join{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+<%
+
+  if(session=='partner'){%>
+
+<style>
+  .products{
+    display: none;
+  }
+  .cart{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+
+
+<section class= "header-section">
+  <div class ="center-div">
+    <!-- <div class="our-vission" style="margin-bottom:10%;">
+    <h1 class="font-weight-bold col-lg-10 col-m-10 col-10 offset-lg-2 offset-md-2 offset-2" style="text-align: center;width: 60%;"><b>"</b> Focused to transform the life of rural people by providing logistics and marketing support to SHGs <b>"</b></h1>
+    <p><b> - Our Vision</b></p>
+  </div> -->
+
+
+
+<div id="message" style="margin-bottom: 10%;margin-top: 5%;">
+      <h2>404</h2>
+      <h1>Page Not Found</h1>
+      <h3>The specified url was not found on this website. Please check the URL for mistakes and try again.</h3>
+      <h2>Why am I seeing this?</h2>
+      <h3>The url you are searching for either broken or not found. please check your input url and happy shopping.!.</h3>
+    </div>
+
+
+<div class="header-buttons" style="margin-bottom:-20%;">
+      <a href="products">OUR PRODUCTS</a>
+    </div>
+  
+
+  </div>
+  
+
+</section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************footer********************* -->
+
+ <%- include('partials/footer') %> 
+
+<!-- ****************footer********************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

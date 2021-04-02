@@ -1,0 +1,504 @@
+<!-- ****** created by*****
+Ujjal das
+*********** -->
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+<style type="text/css">
+  .carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+.carousel-multi-item-2 .col-md-3 {
+float: left;
+width: 25%;
+max-width: 100%; } }
+
+.carousel-multi-item-2 .card img {
+border-radius: 2px; }
+</style>
+
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<!-- thumnail -->
+<meta property="og:image" content="public/img/logo/logo" /> 
+<meta property="og:title" content="BYER" />
+<meta property="og:description" content="Byer is a technology based platform which gives marketing and logistic solutions to the SHG and MSME groups who want to sell their products and increase their sales through online in the retailer market. Consumers can
+          buy products through our app and website from their nearest shop." />
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+    <title>Delivery</title>
+    <link rel="icon" type="image/png" href="../public/img/logo/logo">
+  </head>
+  <body>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <%- include('partials/header')%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <%
+  if(session=='user'||session=='partner'){%>
+
+<style>
+  .login{
+    display: none;
+  }
+  .join{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+
+
+
+<%
+
+  if(session=='partner'){%>
+
+<style>
+  .products{
+    display: none;
+  }
+  .cart{
+    display: none;
+  }
+
+</style>
+
+ <% }
+
+%>
+
+
+
+
+
+
+
+
+
+
+
+<%if(count!=1 && error!='yes'&& success!='achieved'){%>
+<style type="text/css">
+  
+.incorrectOtp{
+  display: block!important;
+}
+
+</style>
+
+<%}%>
+
+
+
+<div  class='enterPass p-5' style='margin-top: 15vh;'>
+
+  <div class="incorrectOtp text-white bg-danger" style="width: 300px;display: none;">
+    <h5> Incorrect delivery Code </h5>
+  </div>
+
+  <form class="form-inline" method="post" action='/deliver?orderId=<%=orderID%>&count=<%=count%>' >
+  <!-- <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+  </div> -->
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="passcode" class="sr-only">Pass Code</label>
+    <input type="tel" class="form-control" id="passcode" name='passcode' placeholder="Password" minlength="6" maxlength="6">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Deliver</button>
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+
+<%if(error=='yes' && success!='achieved'){%>
+<style type="text/css">
+  .error{
+  display: block!important;
+}
+.enterPass{
+  display: none!important;
+}
+
+</style>
+
+
+<%}%>
+
+
+
+
+
+
+
+
+<div class='container error p-lg-5 p-md-5 p-5' style="display: none; margin-top: 15vh;">
+
+  <div class='row '>
+    
+<div class='h-25 col-lg-5 col-md-5 col-sm-5 col-5 card bg-danger text-white' >
+  <div class="card-header">SomeThing Went wrong please try Again...</div>
+  <div class="card-body">
+      <h5 class="card-title">Error</h5>
+      <p class="card-text">either this Link is broken or you dont have the proper authication.</p>
+      <p class="card-text"><small class="text-yellow">Pleae login again and do it again after checking the Status</small></p>
+    </div>
+
+</div>
+
+
+  </div>
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%if(success=='achieved'){%>
+
+
+<style type="text/css">
+  
+.enterPass{
+  display: none!important;
+}
+
+  .error{
+  display: none!important;
+}
+
+.success{
+  display: block!important;
+}
+
+
+</style>
+
+<%}%>
+
+
+
+
+
+
+<div class='container success mb-5' style="display: none; margin-top: 15vh;">
+
+ <div class='row '>
+    
+<div class='h-25 col-lg-5 col-md-5 col-sm-5 col-5 card bg-success text-white' >
+  <div class="card-header">Delivered Successfully</div>
+  <div class="card-body">
+      <h5 class="card-title">Success</h5>
+      <p class="card-text">Please ensure that you collect the amount from the customer.</p>
+      <p class="card-text"><small class="text-yellow">Happy to work with You...!</small></p>
+    </div>
+
+</div>
+
+
+  </div> 
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************footer********************* -->
+ <%- include('partials/footer') %> 
+<!-- ****************footer********************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

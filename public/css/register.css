@@ -1,0 +1,283 @@
+/******ujjal das******/
+
+
+*{margin:0;padding:0;box-sizing:border-box;font-family: 'Poppins', sans-serif;}
+
+a{text-decoration: none;}
+a:hover{
+	text-decoration: none;
+}
+li{list-style: none;}
+p{
+	font-size: 0.9rem;
+	line-height: 1.6;
+	font-weight: 400;
+	color: #606060;
+}
+
+
+
+.header{
+	width: 100%;
+	height:60vh;
+	background-image:linear-gradient(rgba(0,168,255,0.3),rgba(0,168,255,0.3)), url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080'); 
+	background-repeat: no-repeat;
+	background-size: 100% 60%;
+
+	clip-path: polygon(100% 0%, 100% 100%, 0% 100%,0 0);
+	position: relative;
+}
+
+.header:before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	bottom:0%;
+	left: 0%;
+	right: 0%;
+	opacity: .4;
+	z-index: -1;
+	background: linear-gradient(to right,#1e5799 0%,#3ccdbb 0%,#16c9f6 100%);
+
+}
+
+.navbar:before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	bottom:0%;
+	left: 0%;
+	right: 0%;
+	opacity: .4;
+	z-index: -1;
+	background: linear-gradient(to right,#1e5799 0%,#3ccdbb 0%,#16c9f6 100%);
+
+}
+
+.nav-item a{
+	color:#fff!important;
+	font-weight:bold;
+}
+
+
+.header-section{
+	width:auto;
+	height:inherit;
+	color: white;
+	text-align: center;
+	position: relative;
+}
+
+.center-div{
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+
+.header-buttons a{
+	border: 1px solid #fff;
+	border-radius: 100px;
+	margin: 0px;
+	padding:12px 35px;
+	outline: none;
+	color: #fff;
+	font-size: 1rem;
+	font-weight:400;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.header-buttons a:hover{
+	color:#50d1c0;
+	background:#fff;
+	text-decoration: none;
+	box-shadow: 0 0 20px 0 rgbs(0,0,0,0.3);
+}
+
+.center-div p{
+	font-size:1.3rem;
+	padding: 10px 0 20px 0;
+	color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************register form******************/
+
+
+
+
+
+
+
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.form-group>input,
+.form-group>label {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-group>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+}
+
+.form-group input::-webkit-input-placeholder {
+  /*color: transparent;*/
+}
+
+.form-group input:-ms-input-placeholder {
+  /*color: transparent;*/
+}
+
+.form-group input::-ms-input-placeholder {
+  /*color: transparent;*/
+}
+
+.form-group input::-moz-placeholder {
+  /*color: transparent;*/
+}
+
+.form-group input::placeholder {
+  /*color: transparent;*/
+}
+
+.form-group input:not(:placeholder-shown) {
+  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-group input:not(:placeholder-shown)~label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+.btn-google {
+  color: white;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white;
+  background-color: #3b5998;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+  .form-group>label {
+    display: none;
+  }
+  .form-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+  .form-group>label {
+    display: none;
+  }
+  .form-group input:-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/*******************register form******************/
+
+
+
+@media only screen and (max-width: 800px) {
+  
+
+.register-header{
+	margin-left: 0!important;
+	font-size: 1.3rem;
+	
+}
+
+}
+
+

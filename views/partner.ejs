@@ -1,0 +1,2180 @@
+<!-- ********************AUTHOR****************
+Ujjal Das
+*************************************** -->
+
+
+
+
+
+
+
+<!-- ****** created by*****
+Ujjal das
+*********** -->
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+<style type="text/css">
+  .orders {
+  background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f);
+ /* min-height: 100vh;*/
+}
+  .carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+.carousel-multi-item-2 .col-md-3 {
+float: left;
+width: 25%;
+max-width: 100%; } }
+
+.carousel-multi-item-2 .card img {
+border-radius: 2px; }
+
+
+
+
+
+
+
+
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 2% 2%;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  /*position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;*/
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 40%;
+  border: 1% solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 2%;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=number] {
+  width: 100%;
+  padding: 2%;
+  margin: 0.5% 0 2% 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 2% 2%;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:3%;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+.yourinfoBlock{
+    background-color: #fff;
+    left:0px;
+    margin-top:10px;
+    margin-bottom:15px;
+    margin-right:10px;
+  }
+
+
+
+
+
+</style>
+
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<!-- thumnail -->
+<meta property="og:image" content="public/img/logo/logo" /> 
+<meta property="og:title" content="BYER" />
+<meta property="og:description" content="Byer is a technology based platform which gives marketing and logistic solutions to the SHG and MSME groups who want to sell their products and increase their sales through online in the retailer market. Consumers can
+          buy products through our app and website from their nearest shop." />
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../public/css/partner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <title><%= pageTitle%></title>
+    <link rel="icon" type="image/png" href="../public/img/logo/logo">
+  </head>
+  <body>
+    
+
+
+
+
+
+
+
+
+<!-- <div class="header" id="top-header" > -->
+<!-- can add fixed-top here to reove the silde show -->
+
+
+
+
+<%- include('partials/header')%>
+
+
+  <%
+  if(session=='user'||session=='partner'){%>
+
+<style>
+  .login{
+    display: none;
+  }
+  .join{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+<%
+
+  if(session=='partner'){%>
+
+<style>
+  .products{
+    display: none;
+  }
+  .cart{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+
+<!-- <section class= "header-section">
+  <div class ="center-div">
+    <h1 class="font-weight-bold partner-header"  style="margin-top: 100%;">OUR PARTNER</h1>
+    </div>
+  </div>
+</section>
+</div> -->
+
+
+
+
+
+<%
+  console.log('??????????\n',userDetails,'\n??????????\n')
+  if(userDetails.validate==null){
+
+    console.log(userDetails.validate);
+%>
+
+<div class='container' style='padding: 50px;margin-top: 50px;'>
+  
+<div class='row'>
+  
+<div class='col col-lg-10 col-md-10 col-sm-10'>
+  
+<div class="card text-white bg-warning mb-3" >
+  <div class="card-header" style='text-align: center;'><h5><b>Your Verification Process is still going on</b></h5></div>
+  <div class="card-body">
+    <!-- <h5 class="card-title">Warning card title</h5> -->
+    <p class="card-text">For the better experience of byer and for the security pupose this process is necessary .</p>
+    <p class="card-text">You will get call from our executives for the further process .</p>
+    <p class="card-text"> for any query you can contact our customer care number <b>+91 7008342004</b> or mail us at <b>customer.byer@gmail.com</b></p>
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<%}else{%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *************************product registration form start***************************** -->
+
+
+
+<div style="margin-top: 50px;">
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Register Your Product</h5>
+
+
+            <form class="form-signin" method="post" action="/partner/newProduct" enctype="multipart/form-data"
+            oninput='category.setCustomValidity(category.value == "0" ? "Please select a Product Category." : "")'>
+              <div class="form-label-group">
+                <input type="text" name="name" id="inputName" class="form-control" placeholder="product Name" required >
+                <label for="inputName">product Name</label>
+              </div>
+
+              
+
+              <div class="form-label-group">
+                <input  class="form-control" name="price"  id="inputPrice"  placeholder="Price in rupees" required 
+
+oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "9"
+                >
+
+
+                <label for="inputPrice">Price per unit</label>
+              </div>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+var productsByCategory = {
+    Spices: ["Mustard", "Turmeric"],
+    Millets: ["Millets"],
+    Honey: ["Honey"],
+    Pulses:["Arhar Daal"],
+    Handicraft:["caneFurniture",'handloom']
+}
+
+    function changecat(value) {
+        if (value.length == 0) document.getElementById("category").innerHTML = "<option></option>";
+        else {
+            var catOptions = "";
+            for (categoryId in productsByCategory[value]) {
+                catOptions += "<option value=\""+productsByCategory[value][categoryId]+"\">" + productsByCategory[value][categoryId] + "</option>";
+            }
+            document.getElementById("category").innerHTML = catOptions;
+        }
+    }
+
+
+
+
+</script>
+
+
+<div class="form-label-group selectCategory" >
+
+
+<select name="mainProduct" id="mainProduct" onChange="changecat(this.value);">
+    <option value="" disabled selected>Select</option>
+    <option value="Spices">Spices</option>
+    <option value="Millets">Millets</option>
+    <option value="Honey">Honey</option>
+    <option value="Pulses">Pulses</option>
+    <option value="Handicraft">Handicraft</option>
+</select>
+
+
+  <select name='category' id='category'>
+    <option value="0" disabled selected>Select subcategory:</option>
+    
+    <!-- <option value="Daal">Daal</option>
+    <option value="Wheat Floor">Wheat Floor</option>
+    <option value="Ragi Floor">Ragi Floor</option>
+    <option value="Chana">Chana</option>
+    <option value="Rajma">Rajma</option>
+    <option value="Musturd Oil">Musturd Oil</option> -->
+    
+  </select>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about" class="form-control" rows="2" id="about" placeholder="Specification No 1" required></textarea>
+</div>
+
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about1" class="form-control" rows="2" id="about" placeholder="Specification No 2" ></textarea>
+</div>
+
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about2" class="form-control" rows="2" id="about" placeholder="Specification No 3" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about3" class="form-control" rows="2" id="about" placeholder="Specification No 4" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about4" class="form-control" rows="2" id="about" placeholder="Specification No 5" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about5" class="form-control" rows="2" id="about" placeholder="Specification No 6" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="support" class="form-control" rows="2" id="about" placeholder="support( guarantee,warentee,servicing etc.)" ></textarea>
+</div>
+
+
+
+
+
+              
+
+
+
+<div class="form-label-group">
+                <input type="file" class="form-control" name="img1"  id="inputImg1"  placeholder="Image 1" accept="image/*" required >
+                <label for="inputPrice">Product Image</label>
+              </div>
+
+
+              <!-- <div class="form-label-group">
+                <input type="file" class="form-control" name="img2"  id="inputImg2"  placeholder="Image 1" accept="image/*" enctype="multipart/form-data">
+                <label for="inputPrice">Image 1</label>
+              </div> -->
+
+
+
+
+
+<!-- 
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div> -->
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="margin-top: 4%;">Add Product</button>
+
+
+
+
+
+
+
+
+              <hr class="my-4">
+              <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google mr-2"></i> Sign in with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fa fa-facebook mr-2"></i> Sign in with Facebook</button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+<!-- *************************product registration form end******************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- **************************address section start here ********************************** -->
+
+<div class="customerInformation" style="background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f); margin-top: 60px;">
+
+
+  <div class="container">
+<div class="row">
+
+
+<div class="yourinfoBlock col-sm-10 col-md-5 col-lg-5">
+  <h3>Your Address</h3>
+<address >
+  <%if(address.name!=null){%>
+<%=address.name%> <br> 
+<%=address.streetAddress%><br>
+<%if(address.landmark.length!=0){%>
+<%=address.landmark%> <br>
+<%}%>
+<%=address.city%>, <%=address.state%> - <%=address.pincode%><br>
+mobNo: <%=address.mobNo%>
+<%}else{%>
+
+
+<h1 style="font-weight:bolder;"> Add your Address</h1>
+<%}%>
+</address>
+<button class="open-button" onclick="openForm()" style="text-align: center;">
+  <%if(address.name==null){%>Add Adress<%}else{%>Edit Address<%}%></button>
+
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="form-popup" id="myForm">
+  <form method="post" action="/partner/editAddress" class="form-container">
+    <!-- <h3>New Address</h3> -->
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Full Name" name="name" required minlength="4">
+
+    <label for="mobNo"><b>Mobile Number</b></label>
+    <input type="number" placeholder="Mobile Number" name="mobNo" required minlength="10" maxlength="10">
+
+    <label for="pin"><b>PinCode</b></label>
+    <input type="number" placeholder="Pincode" name="pin" required minlength="6" maxlength="6">
+
+   
+
+    <label for="streetAddress"><b>Street Address</b></label>
+    <input type="text" placeholder="street Address" name="streetAddress" required>
+
+    <label for="landmark"><b>Landmark</b></label>
+    <input type="text" placeholder="Landmark(optional)" name="landmark">
+
+    <label for="city"><b>City</b></label>
+    <input type="text" placeholder="City" name="city" required>
+
+    <label for="state"><b>state</b></label>
+    <input type="text" placeholder="state" name="state" required>
+
+
+    <button type="submit" class="btn">Done</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+
+<!-- **************************address section end here ********************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ***********************Dashboard controller start here********************* -->
+
+<style type="text/css">
+  
+.dashController button{
+box-shadow: 0.2rem 0.2rem 0.3rem 0.2rem grey;
+}
+
+</style>
+
+
+<div class='container dashController mb-2' style="text-align: center;">
+  
+<div class='row'>
+  
+  <div class='col'><button class='tranction btn-block' data-toggle="collapse" data-target="#transcation-panel"><h5>TRANCTIONS</h5></button></div>
+
+  <div class='col'><button class='dashboard btn-block' data-toggle="collapse" data-target="#partner-dashboard"> <h5>DASHBOARD</h5></button></div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+  
+$(document).ready(function(){
+
+  cTran=0;
+  cDash=1;
+
+
+$('.dashboard').click().css("background-color", "#1284F0");
+
+
+
+  $('.tranction').click(function(){
+    cTran++;
+    if(cTran%2!=0){
+      $('.tranction').css("background-color", "#1284F0");
+      if(cDash%2!=0){cDash++;$('.dashboard').css("background-color", "white");}
+    }else{
+      $('.tranction').css("background-color", "white");
+    }
+   
+    $('#partner-dashboard').collapse('hide')
+  });
+
+
+
+
+
+  $('.dashboard').click(function(){
+    
+     cDash++;
+    if(cDash%2!=0){
+
+      $('.dashboard').css("background-color", "#1284F0");
+      if(cTran%2!=0){cTran++;$('.tranction').css("background-color", "white");}
+
+    }else{
+      $('.dashboard').css("background-color", "white");
+    }
+    $('#transcation-panel').collapse('hide')
+  });
+
+});
+
+</script>
+
+
+
+<!-- ***********************Dashboard controller end here********************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *************************partner dashboard start here****************************** -->
+
+
+
+
+<div class='container partner-dashboard mb-4 collapse' id ='partner-dashboard' style='font-size: 0.8rem;text-align: center;'>
+
+  <div class='row'>
+
+
+
+
+
+    <div class='col-lg-2 col-md-2  col-sm-12 col-12 mt-3'>
+      <div class='card  text-white bg-success'>
+      <div class="card-header">Total Product</div>
+
+       <div class="card-body">
+    <h5 class="card-title"><%=products.length%></h5>
+    
+  </div>
+      </div>
+    </div>
+    
+
+
+    <div class='col-lg-2 col-md-2  col-sm-12 col-12 mt-3' >
+      <div class='card  text-white bg-primary  '>
+      <div class="card-header">Delivered Order</div>
+
+       <div class="card-body">
+    <h5 class="card-title"><%=deliveredOrder.length%></h5>
+    
+  </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+        <div class='col-lg-2 col-md-2  col-sm-12 col-12 mt-3'>
+          <div class='card  text-white bg-warning'>
+      <div class="card-header">Available Stock</div>
+
+       <div class="card-body">
+    <h5 class="card-title">Loading ...</h5>
+    
+  </div>
+</div>
+      
+    </div>
+
+
+
+
+      <div class='col-lg-2 col-md-2  col-sm-12 col-12 mt-3'>
+          <div class='card  text-white bg-primary '>
+      <div class="card-header">Future Demand</div>
+
+       <div class="card-body">
+    <h5 class="card-title">Loading ...</h5>
+    
+  </div>
+</div>
+      
+    </div>
+
+
+
+
+      <div class='col-lg-2 col-md-2  col-sm-12 col-12 mt-3'>
+          <div class='card  text-white bg-success'>
+      <div class="card-header">New Order</div>
+
+       <div class="card-body">
+    <h5 class="card-title"><%=orders.length%></h5>
+    
+  </div>
+</div>
+      
+    </div>
+
+
+
+
+
+
+  </div>
+  
+
+</div>
+
+
+
+<!-- *************************partner dashboard start end ****************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------Transcation Panel Start Here------------------------------ -->
+<!-- <style type="text/css">
+  
+  .transcation-panel h5{
+    font-size: 0.8rem;
+  }
+
+</style>
+ -->
+<!-- <button data-toggle="collapse" data-target="#transcation-panel">Fiancial</button> -->
+
+
+
+<div class='container transcation-panel collapse mb-4' id ='transcation-panel' style='font-size: 0.8rem;text-align: center;'>
+
+  <div class='row'>
+
+
+
+
+
+    <div class='col-lg-4 col-md-4  col-sm-12 col-12 mt-3 '>
+      <div class='card  text-white bg-success'>
+      <div class="card-header">Total Balance</div>
+
+       <div class="card-body">
+    <h5 class="card-title" >Loading...</h5>
+    
+  </div>
+      </div>
+    </div>
+    
+
+
+    <div class='col-lg-4 col-md-4  col-sm-12 col-12 mt-3'>
+    <div class=' card  text-white bg-primary  '>
+      <div class="card-header">Total Received Amount</div>
+
+       <div class="card-body">
+    <h5 class="card-title">Loading ...</h5>
+    
+  </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+        <div class='col-lg-4 col-md-4  col-sm-12 col-12 mt-3 '>
+          <div class='card  text-white bg-warning'>
+      <div class="card-header">Total Due Amount</div>
+
+       <div class="card-body">
+    <h5 class="card-title">Loading ...</h5>
+    
+  </div>
+</div>
+      
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+  
+
+</div>
+
+
+
+
+<!-- --------------------------Transcation Panel end Here-------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ******************your product start here******************************* -->
+<div style="background-color: #21d192;text-align: center;height: 3%;"><h2>YOUR PRODUCTS</h2></div>
+
+
+<div class="container">
+
+ 
+  <div class="row">
+
+
+
+
+<% for(var i=0; i < products.length; i++) { 
+
+//console.log('????????????????',products[i]);
+
+  %>
+
+      <div class="col-lg-4 col-md-4 col-sm-8 mx-auto ">
+        <div class="card card-signin my-5 productCard">
+          <img class="img-fluid product-img" src=<%="../"+products[i].path%>
+            alt="Card image cap">
+            
+            <div class="card-body">
+                            <h4 class="card-title"><a href="/productView?productID=<%=products[i].productId%>" title="View Product"><%=products[i].name%></a></h4>
+                            <p class="card-text" style="height:60px"><%=products[i].about%></p>
+                            <div class="row">
+
+                                <div class="col p-l-0 pr-0">
+                                    <p class="btn btn-danger btn-block">Rs. <%=products[i].price%></p>
+                                </div>
+                                
+                                  <div class="col">
+                                    <a href="#" class="btn btn-success btn-block"
+
+
+
+onclick="$(function(){
+
+      $('.editProductDetails').toggle();
+      $('.editProductDetails').find('#inputNameEditProduct').val('<%=products[i].name%>');
+      $('.editProductDetails').find('#inputPriceEditProduct').val('<%=products[i].price%>');
+      $('.editProductDetails').find('#aboutEditProduct').val('<%=products[i].about%>');
+
+
+$('.editProductDetails').find('#aboutEditProduct1').val('<%=products[i].about1%>');
+$('.editProductDetails').find('#aboutEditProduct2').val('<%=products[i].about2%>');
+$('.editProductDetails').find('#aboutEditProduct3').val('<%=products[i].about3%>');
+$('.editProductDetails').find('#aboutEditProduct4').val('<%=products[i].about4%>');
+$('.editProductDetails').find('#aboutEditProduct5').val('<%=products[i].about5%>');
+
+$('.editProductDetails').find('#SupportEditProduct').val('<%=products[i].support%>');
+
+      $('.editProductDetailsForm').attr('action', '/partner/editProductDetails?productId=<%=products[i].productId%>');
+
+
+  //     $('.productConfirmation  h2').text('Do you want To Verify the Product');
+  //     $('.productConfirmation  h6').text('<%=products[i].productId%>');
+  //     $('.productConfirmation  h4').text('<%=products[i].name%>');
+  //     $('.productConfirmation  h5').text('<%=products[i].about%>');
+  //     $('.productConfirmation h3').text('Price: <%=products[i].price%>');
+  //     $('.productConfirmation  a').attr({
+  //   'href' : '#',
+  // });
+
+
+
+
+
+    });"
+
+
+                                    >Edit</a>
+
+
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                              <div class="col">
+                                    <a href="/partner/removeProduct?productId=<%=products[i].productId%>&path=<%=products[i].path%>" class="btn btn-success btn-block">Remove</a>
+                                  </div>
+                            </div>
+
+                        </div>
+
+      </div>
+    </div>
+
+<% } %>
+
+
+
+
+   
+
+
+</div>
+</div>
+
+
+
+<!-- ******************your product start here******************************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  $( document ).ready(function() {
+    $('.editProductDetails').toggle();
+});
+</script>
+
+
+
+
+
+
+
+
+<div class="container bg-successs editProductDetails  " style="position: fixed;top: 10px;right:0px;left:0px;z-index: 999;">
+    <div class="row">
+      <div class="col-sm-9 col-md-9 col-lg-10 col-10 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Edit Your Product Details</h5>
+
+
+            <form class="form-signin editProductDetailsForm" method="post" action="#"
+            oninput='status.setCustomValidity(status.value == "0" ? "Please select a Product Status." : "")'>
+              <div class="form-label-group">
+
+                <input type="text" name="name" id="inputNameEditProduct" class="form-control" placeholder="product Name" required >
+                <label for="inputName">product Name</label>
+              </div>
+
+              
+
+              <div class="form-label-group">
+                <input  class="form-control" name="price"  id="inputPriceEditProduct"  placeholder="Price in rupees" required 
+
+oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "9"
+                >
+
+
+                <label for="inputPrice">Price per unit</label>
+              </div>
+
+            
+
+
+<div class="form-label-group selectCategory" >
+
+
+<select name="status" id="status">
+    <option value="0" disabled>Select Status</option>
+    <option value="Available" >Available</option>
+    <option value="OutOfStock">Out Of Stock</option>
+    <option value="notSelling">Not Selling</option>
+    
+</select>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about" class="form-control" rows="2" id="aboutEditProduct" placeholder="Specification No 1" required></textarea>
+</div>
+
+
+
+
+         <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about1" class="form-control" rows="2" id="aboutEditProduct1" placeholder="Specification No 2" ></textarea>
+</div>
+
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about2" class="form-control" rows="2" id="aboutEditProduct2" placeholder="Specification No 3" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about3" class="form-control" rows="2" id="aboutEditProduct3" placeholder="Specification No 4" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about4" class="form-control" rows="2" id="aboutEditProduct4" placeholder="Specification No 5" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="about5" class="form-control" rows="2" id="aboutEditProduct5" placeholder="Specification No 6" ></textarea>
+</div>
+
+
+              <div class="form-label-group">
+  <!-- <label for="comment">Comment:</label> -->
+  <textarea name="support" class="form-control" rows="2" id="SupportEditProduct" placeholder="support( guarantee,warentee,servicing etc.)" ></textarea>
+</div>
+              
+
+
+
+<!-- <div class="form-label-group">
+                <input type="file" class="form-control" name="img1"  id="inputImg1"  placeholder="Image 1" accept="image/*" required >
+                <label for="inputPrice">Product Image</label>
+              </div> -->
+
+
+             
+
+
+
+
+
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="margin-top: 4%;">Edit Information</button>
+
+
+
+
+
+
+
+
+              <hr class="my-4">
+              <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fa fa-google mr-2"></i> Sign in with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fa fa-facebook mr-2"></i> Sign in with Facebook</button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+  
+  .productCard{
+    /*box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);*/
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+  /*transform: translateY(-20px);*/
+  /*box-shadow: 0.5rem 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.1);*/
+  box-shadow: 0.4rem 0.4rem 0.5rem 0.4rem grey;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ***********************************your new order start here******************************* -->
+
+
+
+<div class="px-4 px-lg-0 orders" style="margin-top: 20px;">
+  <!-- End -->
+
+  <div class="pb-5">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+<!-- Shopping cart table -->
+          <h3 style="background-color: #21d192;height: 3%;text-align: center;margin-bottom: 20px;">YOUR NEW ORDERS</h3>
+          <div class="table-responsive">
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% 
+var data=orders;
+for( var i=0;i<data.length;i++){ 
+
+var status=data[i].status;
+var price=0;
+//var note=data[i].note;
+// var address=data[i].address;
+//var orderId=data[i].orderId;
+//console.log('$$$$$$$$$$$$$$$$$$$',data[i]);
+
+var tax=0;
+var shippingCharge=0;
+
+
+var cusRegisterMob=data[i].mobNo;
+var orderStatus=data[i].orderStatus;
+var note=data[i].note;
+var orderId=data[i].orderId;
+
+
+var addressString=data[i].address;
+var tAddress=addressString.split(';');
+
+var addName=tAddress[0];
+var addMob=tAddress[1];
+var addPincode=tAddress[2];
+var addStreet=tAddress[3];
+var addLandmark=tAddress[4];
+var addCity=tAddress[5];
+var addState=tAddress[6];
+
+
+
+
+
+ %>
+<table class="table" >
+               
+
+              <thead>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Product</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Total Price</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Quantity</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Status</div>
+                  </th>
+                </tr>
+              </thead>
+      <tbody>        
+
+<% for(var j=0;j<data[i].items.length;j++){
+
+  //console.log('##########%%%%%%%%%%%%@@@@@@@@@@',data[i].items);
+var name=data[i].items[j].name;
+var quantity=data[i].items[j].quantity;
+var filePath=data[i].items[j].filePath;
+var totalPrice=data[i].items[j].totalPrice;
+var productId=data[i].items[j].productId;
+
+
+price+=parseInt(totalPrice);
+
+//console.log(name,quantity,filePath,totalPrice);
+
+
+
+
+// name:itemdata[0].name,
+//               quantity:itemdata[0].quantity,
+//               totalPrice:itemdata[0].totalPrice,
+//               filePath:itemdata[0].filePath,
+//               productId:itemdata[0].productId
+  %>
+                <tr>
+                  <th scope="row" class="border-0">
+                    <div class="p-2">
+                      <img src=<%=filePath%> alt="product Image" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%=name%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Order Id: <%=orderId%></span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="border-0 align-middle"><strong>Rs. <%=totalPrice%></strong></td>
+                  <td class="border-0 align-middle"><strong><%=quantity%></strong></td>
+                  <td class="border-0 align-middle"><a href="#" class="text-dark"><%=orderStatus%></a></td>
+                </tr>
+
+
+              <%}
+
+
+if(price<500){
+  shippingCharge=0;
+}
+var productPrice=price;
+// price+=50;
+
+
+              %>
+
+
+
+   
+
+
+
+
+
+              </tbody>  
+
+</table>
+
+
+
+<div class="row">
+  
+
+
+
+
+
+
+
+  <div class="col-lg-5" style="text-align: center;"> 
+          <!-- <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div> -->
+          <div class="p-4">
+ <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>Rs. <%= productPrice %></strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>Rs. <%=shippingCharge%> </strong></li>
+
+              
+
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>Rs. <%=tax%></strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                <h5 class="font-weight-bold">Rs. <%= price %></h5>
+              </li>
+
+
+            </ul>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- var addName=tAddress[0];
+var addMob=tAddress[1];
+var addPincode=tAddress[2];
+var addStreet=tAddress[3];
+var addLandmark=tAddress[4];
+var addCity=tAddress[5];
+var addState=tAddress[6]; -->
+
+
+<!-- <div class="col-sm-10 col-md-5 col-lg-5 border" style="text-align: center;margin-top: 20px;">
+  <h4 style="margin-bottom: 10px;"><b>Shipping Address</b></h4>
+<address >
+  <%if(addName!=null){%>
+<%=addName%> <br> 
+<%=addStreet%><br>
+<%if(addLandmark.length!=0){%>
+<%=addLandmark%> <br>
+<%}%>
+<%=addCity%>, <%=addState%> - <%=addPincode%><br>
+mobNo: <%=addMob%>
+<%}else{%>
+
+
+
+<%}%>
+</address>
+
+
+  
+  </div> -->
+
+
+
+
+
+
+
+      
+
+</div>
+
+
+
+<button class="btn btn-success btn-block" 
+onclick="window.location.href = '/deliver?orderID=<%=orderId%>&count=1&success=pending';">Deliver</button>
+
+
+
+
+
+
+
+
+
+              <hr class="my-3">
+
+
+
+
+
+
+
+
+            <!-- <hr class="mt-4 mb-5"> -->
+             <%  } %> 
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+          </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- ***************************************your order end here************************************ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ************************************** past Delivered orders start here*************************************** -->
+
+
+
+
+
+
+<div class="px-4 px-lg-0 orders" style="margin-top: 20px;">
+  <!-- End -->
+
+  <div class="pb-5">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+<!-- Shopping cart table -->
+          <h3 style="background-color: #21d192;height: 3%;text-align: center;margin-bottom: 20px;">YOUR DELIVERED ORDERS</h3>
+          <div class="table-responsive">
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% 
+var data=deliveredOrder;
+for( var i=0;i<data.length;i++){ 
+
+var status=data[i].status;
+var price=0;
+//var note=data[i].note;
+// var address=data[i].address;
+//var orderId=data[i].orderId;
+//console.log('$$$$$$$$$$$$$$$$$$$',data[i]);
+
+var tax=0;
+var shippingCharge=0;
+
+
+var cusRegisterMob=data[i].mobNo;
+var orderStatus=data[i].orderStatus;
+var note=data[i].note;
+var orderId=data[i].orderId;
+
+
+var addressString=data[i].address;
+var tAddress=addressString.split(';');
+
+var addName=tAddress[0];
+var addMob=tAddress[1];
+var addPincode=tAddress[2];
+var addStreet=tAddress[3];
+var addLandmark=tAddress[4];
+var addCity=tAddress[5];
+var addState=tAddress[6];
+
+
+
+
+
+ %>
+<table class="table mt-5" >
+               
+
+              <thead >
+                <tr >
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Product</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Total Price</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Quantity</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Status</div>
+                  </th>
+                </tr>
+              </thead>
+      <tbody>        
+
+<% for(var j=0;j<data[i].items.length;j++){
+
+  //console.log('##########%%%%%%%%%%%%@@@@@@@@@@',data[i].items);
+var name=data[i].items[j].name;
+var quantity=data[i].items[j].quantity;
+var filePath=data[i].items[j].filePath;
+var totalPrice=data[i].items[j].totalPrice;
+var productId=data[i].items[j].productId;
+
+
+price+=parseInt(totalPrice);
+
+//console.log(name,quantity,filePath,totalPrice);
+
+
+
+
+// name:itemdata[0].name,
+//               quantity:itemdata[0].quantity,
+//               totalPrice:itemdata[0].totalPrice,
+//               filePath:itemdata[0].filePath,
+//               productId:itemdata[0].productId
+  %>
+                <tr>
+                  <th scope="row" class="border-0">
+                    <div class="p-2">
+                      <img src=<%=filePath%> alt="product Image" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%=name%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Order Id: <%=orderId%></span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="border-0 align-middle"><strong>Rs. <%=totalPrice%></strong></td>
+                  <td class="border-0 align-middle"><strong><%=quantity%></strong></td>
+                  <td class="border-0 align-middle"><a href="#" class="text-dark"><%=orderStatus%></a></td>
+                </tr>
+
+
+              <%}
+
+
+if(price<500){
+  shippingCharge=0;
+}
+var productPrice=price;
+// price+=50;
+
+
+              %>
+
+
+
+   
+
+
+
+
+
+              </tbody>  
+
+</table>
+
+
+
+<div class="row">
+  
+
+
+
+
+
+
+
+  <div class="col-lg-5" style="text-align: center;"> 
+          <!-- <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div> -->
+          <div class="p-4">
+ <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>Rs. <%= productPrice %></strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>Rs. <%=shippingCharge%> </strong></li>
+
+              
+
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>Rs. <%=tax%></strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                <h5 class="font-weight-bold">Rs. <%= price %></h5>
+              </li>
+
+
+            </ul>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- var addName=tAddress[0];
+var addMob=tAddress[1];
+var addPincode=tAddress[2];
+var addStreet=tAddress[3];
+var addLandmark=tAddress[4];
+var addCity=tAddress[5];
+var addState=tAddress[6]; -->
+
+
+<!-- <div class="col-sm-10 col-md-5 col-lg-5 border" style="text-align: center;margin-top: 20px;">
+  <h4 style="margin-bottom: 10px;"><b>Shipping Address</b></h4>
+<address >
+  <%if(addName!=null){%>
+<%=addName%> <br> 
+<%=addStreet%><br>
+<%if(addLandmark.length!=0){%>
+<%=addLandmark%> <br>
+<%}%>
+<%=addCity%>, <%=addState%> - <%=addPincode%><br>
+mobNo: <%=addMob%>
+<%}else{%>
+
+
+
+<%}%>
+</address>
+
+
+  
+  </div> -->
+
+
+
+
+
+
+
+      
+
+</div>
+
+
+
+<!-- <button class="btn btn-success btn-block" 
+onclick="window.location.href = '/deliver?orderID=<%=orderId%>&count=1&success=pending';">Deliver</button> -->
+
+
+
+
+
+
+
+
+
+              <hr class="my-3">
+
+
+
+
+
+
+
+
+            <!-- <hr class="mt-4 mb-5"> -->
+             <%  } %> 
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+          </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- ****************************************past Delivered order end here***************************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end condition for the partner is validated or not -->
+<%}%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************footer********************* -->
+ <%- include('partials/footer') %> 
+<!-- ****************footer********************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

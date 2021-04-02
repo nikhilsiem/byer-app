@@ -1,0 +1,965 @@
+
+  <%- include('partials/header')%>
+  <%
+  if(session=='user'||session=='partner'){%>
+
+<style>
+  .login{
+    display: none;
+  }
+  .join{
+    display: none;
+  }
+  .register{
+    display: none;
+  }
+  .user{
+    display: block!important;
+  }
+</style>
+
+ <% }
+
+%>
+
+
+
+
+<%
+
+  if(session=='partner'){%>
+
+<style>
+  .products{
+    display: none;
+  }
+  .cart{
+    display: none;
+  }
+
+</style>
+
+ <% }
+
+%>
+
+
+
+
+
+<section class="upper-strip"></section>
+
+
+
+<div class="notification" onclick="$(function(){
+  $('.notification').hide();
+
+});">
+  <p> become bulk purchaser and get more discount  <i class="fa fa-window-close" style="padding:0px; "></i></p>
+
+</div>
+
+
+
+
+<%if(curUser.bulkPurchaser!=null){
+console.log('\n\n\n ########################################\n\n\n\n');
+  %>
+<script type="text/javascript">
+  function loadBulkPurchaserData(){
+    console.log('it is written');
+    document.getElementsByClassName('bulkPurchaser')[0].innerHTML='Organization info'
+    // document.getElementById("organizationName").value= <%=curUser.organization%>;
+    // document.getElementById('GSTnumber').innerHTML= 'hello';
+    $('#bulkForm').find('h5').html('<b>You registered as a bulk Purchaser</b><br><h7>we are verifying your data</h7><br><p><b>If you want to update the details, you can update.</b></p>');
+
+    $('#bulkForm').find('#organizationName').val('<%=curUser.organization%>');
+    $('#bulkForm').find('#GSTnumber').val('<%=curUser.GST%>');
+    $('#bulkForm').find('.done').html('Edit info');
+
+  }
+
+$
+ // window.onload="";
+
+ $( document ).ready(function() {
+    console.log( "ready!" );
+    loadBulkPurchaserData();
+});
+</script>
+
+<%}%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+  
+</style>
+
+
+<section class="customerInformation">
+   <div class="container">
+      <div class="row">
+         <div class="yourinfoBlock col-md-10 m-auto">
+                 <h3>Your Address</h3>
+                  <address >
+                    <%if(addressName!=null){%>
+                  <%=addressName%> <br> 
+                  <%=addressStreetAddress%><br>
+                  <%if(addressLandMark.length!=0){%>
+                  <%=addressLandMark%> <br>
+                  <%}%>
+                  <%=addressCity%>, <%=addressState%> - <%=addressPincode%><br>
+                  mobNo: <%=addressMobNo%>
+                  <%}else{%>
+
+
+                  <h1 style="font-weight:bolder;"> Add your Address</h1>
+                  <%}%>
+                  </address>
+                  <button class="open-button common-btn" data-toggle="modal" data-target="#editaddModal">
+                    <%if(addressName==null){%>Add Adress<%}else{%>Edit Address<%}%></button>
+
+                    
+              </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 m-auto white-box">
+          
+              <!-- **************************new order start  here*******************************88 -->
+
+            
+                      <div class="  rounded shadow-sm mb-5">
+
+              <!-- Shopping cart table -->
+                        <h3 style="text-align: center;margin-bottom: 20px;">YOUR ORDERS</h3>
+                       
+
+
+                          
+
+
+
+              <% for( var i=0;i<data.length;i++){ 
+
+              var status=data[i].status;
+              var price=data[i].totalPrice;
+              var note=data[i].note;
+              var address=data[i].address;
+              var orderId=data[i].orderId;
+              var passcode=data[i].passcode;
+
+              var tax=0;
+              var shippingCharge=0;
+              var productPrice=price-tax-shippingCharge;
+
+
+               %>
+
+             <div class="table-responsive">   
+              <table class="table cart-table" >
+                             
+
+                            <thead>
+                              <tr>
+                                <th scope="col" class="border-0 bg-light">
+                                  <div class="p-2 px-3 text-uppercase">Product</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                  <div class="py-2 text-uppercase">Total Price</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                  <div class="py-2 text-uppercase">Quantity</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                  <div class="py-2 text-uppercase">Status</div>
+                                </th>
+                              </tr>
+                            </thead>
+                    <tbody>        
+
+              <% for(var j=0;j<data[i].items.length;j++){
+              var name=data[i].items[j].name;
+              var quantity=data[i].items[j].quantity;
+              var filePath=data[i].items[j].filePath;
+              var totalPrice=data[i].items[j].totalPrice;
+              var productId=data[i].items[j].productId;
+
+
+              console.log(name,quantity,filePath,totalPrice);
+
+
+
+
+              // name:itemdata[0].name,
+              //               quantity:itemdata[0].quantity,
+              //               totalPrice:itemdata[0].totalPrice,
+              //               filePath:itemdata[0].filePath,
+              //               productId:itemdata[0].productId
+                %>
+                              <tr>
+                                <th scope="row" class="border-0">
+                                  <div class="p-2">
+                                    <img src=<%=filePath%> alt="product Image" width="70" class="img-fluid rounded shadow-sm">
+                                    <div class="ml-3 d-inline-block align-middle">
+                                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%=name%></a></h5><span class="text-muted font-weight-normal font-italic d-block">OrderId: <%=orderId%></span>
+                                    </div>
+                                  </div>
+                                </th>
+                                <td class="border-0 align-middle"><strong>Rs. <%=totalPrice%></strong></td>
+                                <td class="border-0 align-middle"><strong><%=quantity%></strong></td>
+                                <td class="border-0 align-middle"><a href="#" class="text-dark"><%=status%></a></td>
+                              </tr>
+
+
+                            <%}%>
+
+
+
+                 
+
+
+
+
+
+                            </tbody>  
+
+              </table>
+
+            </div>
+
+            <div class="row">
+              <div class='col-lg-6' style="float:left">
+                  
+                <button class="btn common-btn" type="button" data-toggle="collapse" data-target="#collapseExample<%=orderId%>" aria-expanded="false" aria-controls="collapseExample">
+                  Passcode
+                </button>
+
+              <div class="collapse" id="collapseExample<%=orderId%>">
+                <div class="card card-body">
+                  <b><%=passcode%></b>
+                </div>
+              </div>
+
+              </div>
+
+
+
+
+
+
+
+
+              <div class="col-lg-6" style="text-align: center;float: right;"> 
+                        <!-- <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div> -->
+                        <div class="">
+               <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>Rs. <%= productPrice %></strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>Rs. <%=shippingCharge%> </strong></li>
+
+                            
+
+                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>Rs. <%=tax%></strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                              <h5 class="font-weight-bold">Rs. <%=price%></h5>
+                            </li>
+
+
+                          </ul>
+                           <button type="button" class="btn common-btn  btn-block"
+
+                            onclick="$(function(){
+
+                                $('.popup-overlay').toggle();;
+                                $('.popup-overlay  h2').text('Do you want To cancel the order');
+                                // $('.popup-overlay  h4').text('Name: name');
+                                // $('.popup-overlay  h5').text('MobNo: mob');
+                                $('.popup-overlay  a').attr({
+                              'href' : 'user/cancelOrder?orderId=<%=orderId%>',
+                            });
+                          });"
+
+                      >Request Cancelation</button>
+                        </div>
+                      </div>
+
+                      </div>
+
+
+                     
+
+                          <hr class="mt-4 ">
+                           <%  } %> 
+
+
+              
+              </div>
+
+
+
+              
+
+              
+
+
+              <!-- **************************new order end  here*******************************88 -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 m-auto white-box">
+
+                  <div class="  rounded shadow-sm mb-5">
+
+                      <!-- Shopping cart table -->
+                                <h3 style="text-align: center;margin-bottom: 20px;">PAST ORDERS</h3>
+                                
+
+
+
+                      <% 
+
+
+                      for( var i=0;i<deliveredOrder.length;i++){ 
+
+                      var status=deliveredOrder[i].status;
+                      var price=deliveredOrder[i].totalPrice;
+                      var note=deliveredOrder[i].note;
+                      var address=deliveredOrder[i].address;
+                      var orderId=deliveredOrder[i].orderId;
+                      var passcode=deliveredOrder[i].passcode;
+
+                      var tax=0;
+                      var shippingCharge=0;
+                      var productPrice=price-tax-shippingCharge;
+
+
+                       %>
+                       <div class="table-responsive">
+                      <table class="table cart-table" >
+                                     
+
+                                    <thead>
+                                      <tr>
+                                        <th scope="col" class="border-0 bg-light">
+                                          <div class="p-2 px-3 text-uppercase">Product</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light">
+                                          <div class="py-2 text-uppercase">Total Price</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light">
+                                          <div class="py-2 text-uppercase">Quantity</div>
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light">
+                                          <div class="py-2 text-uppercase">Status</div>
+                                        </th>
+                                      </tr>
+                                    </thead>
+                            <tbody>        
+
+                      <% for(var j=0;j<deliveredOrder[i].items.length;j++){
+                      var name=deliveredOrder[i].items[j].name;
+                      var quantity=deliveredOrder[i].items[j].quantity;
+                      var filePath=deliveredOrder[i].items[j].filePath;
+                      var totalPrice=deliveredOrder[i].items[j].totalPrice;
+                      var productId=deliveredOrder[i].items[j].productId;
+
+
+                      console.log(name,quantity,filePath,totalPrice);
+
+
+
+
+                      // name:itemdata[0].name,
+                      //               quantity:itemdata[0].quantity,
+                      //               totalPrice:itemdata[0].totalPrice,
+                      //               filePath:itemdata[0].filePath,
+                      //               productId:itemdata[0].productId
+                        %>
+                                      <tr>
+                                        <th scope="row" class="border-0">
+                                          <div class="p-2">
+                                            <img src=<%=filePath%> alt="product Image" width="70" class="img-fluid rounded shadow-sm">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                              <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%=name%></a></h5><span class="text-muted font-weight-normal font-italic d-block">OrderId: <%=orderId%></span>
+                                            </div>
+                                          </div>
+                                        </th>
+                                        <td class="border-0 align-middle"><strong>Rs. <%=totalPrice%></strong></td>
+                                        <td class="border-0 align-middle"><strong><%=quantity%></strong></td>
+                                        <td class="border-0 align-middle"><a href="#" class="text-dark"><%=status%></a></td>
+                                      </tr>
+
+
+                                    <%}%>
+
+
+
+                         
+
+
+
+
+
+                                    </tbody>  
+
+                      </table>
+
+                       </div>
+
+                       <div class="row">
+                      <!-- <div class='col-lg-3' style="float:left">
+                          
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample<%=orderId%>" aria-expanded="false" aria-controls="collapseExample">
+                          Passcode
+                        </button>
+
+                      <div class="collapse" id="collapseExample<%=orderId%>">
+                        <div class="card card-body">
+                          <b><%=passcode%></b>
+                        </div>
+                      </div>
+
+                      </div> -->
+
+
+
+
+
+
+    
+
+                      <div class="col-lg-6 ml-auto"> 
+                                <!-- <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div> -->
+                                <div>
+                       <ul class="list-unstyled mb-4">
+                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>Rs. <%= productPrice %></strong></li>
+                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>Rs. <%=shippingCharge%> </strong></li>
+
+                                    
+
+                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>Rs. <%=tax%></strong></li>
+                                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                                      <h5 class="font-weight-bold">Rs. <%=price%></h5>
+                                    </li>
+
+
+                                  </ul>
+
+                                    <button type="button" class="btn btn-secondary  btn-block"
+
+                        onclick="$(function(){
+
+                            $('.popup-overlay').toggle();;
+                            $('.popup-overlay  h2').text('Thank you Choosing Us');
+                            // $('.popup-overlay  h4').text('Name: name');
+                            // $('.popup-overlay  h5').text('MobNo: mob');
+                            $('.popup-overlay  a').attr({
+                          'href' : 'user/renewOrder?orderId=<%=orderId%>',
+                        });
+                      });"
+
+                              >Order Again</button>
+                                </div>
+                              </div>
+
+
+
+
+
+
+
+                     </div>
+                      
+
+
+
+
+
+
+
+                                  <!-- <hr class="mt-4 mb-5"> -->
+                                   <%  } %> 
+
+
+
+
+
+
+
+
+
+
+
+
+                                  
+
+
+                                </div>
+
+                     
+        </div>
+      </div>
+
+
+
+
+   </div>
+</section>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade edit-address-modal" id="editaddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="" id="myForm">
+          <form method="post" action="/user/editAddress">
+            <!-- <h3>New Address</h3> -->
+            <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group">
+                   <label for="name"><b>Name</b></label>
+                   <input class="form-control" type="text" placeholder="Full Name" name="name" required minlength="4">
+                 </div>
+              </div>
+              <div class="col-md-6">
+                 <div class="form-group">
+                    <label for="mobNo"><b>Mobile Number</b></label>
+                    <input class="form-control" type="number" placeholder="Mobile Number" name="mobNo" required minlength="10" maxlength="10">
+                 </div>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group">
+                   <label for="pin"><b>PinCode</b></label>
+                   <input class="form-control" type="number" placeholder="Pincode" name="pin" required minlength="6" maxlength="6">
+                 </div>
+              </div>
+              <div class="col-md-6">
+                 <div class="form-group">
+                    <label  for="streetAddress"><b>Street Address</b></label>
+                    <input class="form-control" type="text" placeholder="street Address" name="streetAddress" required>
+                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                 <div class="form-group">
+                   <label for="landmark"><b>Landmark</b></label>
+                   <input class="form-control" type="text" placeholder="Landmark(optional)" name="landmark">
+                 </div>
+              </div>
+              <div class="col-md-6">
+                 <div class="form-group">
+                    <label for="city"><b>City</b></label>
+                    <input class="form-control" type="text" placeholder="City" name="city" required>
+                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                 <div class="form-group">
+                   <label for="state"><b>state</b></label>
+                   <input class="form-control" type="text" placeholder="state" name="state" required>
+                  </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn common-btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *******************************order cancelation popup start here************************** -->
+
+
+<!--Creates the popup body-->
+<div class=" container popup-overlay" >
+<!--Creates the popup content-->
+ 
+ <div class="card" style="width:400px">
+  
+  <div class="card-body">
+    <h2 ></h2>
+
+    <!-- <h4 class="card-title">J</h4>
+    <h5></h5>
+    <p class="card-text">Some example text.</p> -->
+
+    <a href="#" class="btn btn-primary">Confirm</a>
+    <button class="btn btn-danger close-btn" onclick="hidepopup()"
+
+
+
+    >Cancel</button>
+  </div>
+</div>
+
+  
+</div>
+
+
+<style type="text/css">
+  
+.popup-overlay{
+  display:none;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 250px;
+height: 200px;
+  top: 50%;
+left: 50%;
+margin-top: -100px; /* Negative half of height. */
+margin-left: -200px; /* Negative half of width. */
+}
+
+</style>
+
+
+<script type="text/javascript">
+  
+function hidepopup(){
+  document.getElementsByClassName('popup-overlay')[0].style.display = "none";
+}
+
+</script>
+
+
+<!-- *******************************order cancelation popup end here************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ****************footer********************* -->
+ <%- include('partials/footer') %> 
+
+<!-- ****************footer********************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
